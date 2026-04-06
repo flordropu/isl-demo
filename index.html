@@ -6,167 +6,111 @@
 <title>ISL — Sistema de Gestión de Cuestionarios</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-:root{--green:#3db87a;--blue:#4a90d9;--sidebar:#141824;--bg:#f0f2f5;--card:#ffffff;--border:rgba(0,0,0,0.09);--text:#1a1f2e;--text2:#6b7280;--text3:#9ca3af;--surface:#f8f9fa;--green-soft:#eaf3de;--blue-soft:#e6f1fb;--amber-soft:#fef3cd;--red-soft:#fee2e2}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.5}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f0f2f5;color:#1a1f2e;font-size:14px}
 .app{display:flex;min-height:100vh}
-
-/* SIDEBAR */
-.sb{width:240px;background:var(--sidebar);display:flex;flex-direction:column;position:fixed;top:0;bottom:0;left:0;overflow-y:auto;z-index:50}
-.sb-logo{padding:20px 18px 16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(255,255,255,0.06)}
-.lc{position:relative;width:32px;height:22px}
-.lc1{width:20px;height:20px;border-radius:50%;background:#4a90d9;position:absolute;left:0;top:1px;opacity:.9}
-.lc2{width:20px;height:20px;border-radius:50%;background:#3db87a;position:absolute;left:12px;top:1px;opacity:.9}
-.sb-brand{display:flex;flex-direction:column}
-.sb-t{font-size:16px;font-weight:700;color:#fff;letter-spacing:-.3px}
-.sb-sub{font-size:10px;color:#4a90d9;text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-top:1px}
-.sb-sec{font-size:10px;color:#3d4757;padding:14px 18px 5px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
-.nav{display:flex;align-items:center;gap:10px;padding:9px 16px;cursor:pointer;border-radius:8px;margin:1px 10px;font-size:13px;color:#8892a4;transition:all .15s;font-weight:500;text-decoration:none}
+.sb{width:230px;background:#141824;display:flex;flex-direction:column;position:fixed;top:0;bottom:0;left:0;overflow-y:auto;z-index:50}
+.sb-logo{padding:18px 16px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.lc{position:relative;width:30px;height:20px}
+.lc1{width:18px;height:18px;border-radius:50%;background:#4a90d9;position:absolute;left:0;top:1px}
+.lc2{width:18px;height:18px;border-radius:50%;background:#3db87a;position:absolute;left:10px;top:1px}
+.sb-t{font-size:15px;font-weight:700;color:#fff}
+.sb-sub{font-size:10px;color:#4a90d9;text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.sb-sec{font-size:10px;color:#3d4757;padding:12px 16px 4px;letter-spacing:.1em;text-transform:uppercase;font-weight:600}
+.nav{display:flex;align-items:center;gap:9px;padding:9px 14px;cursor:pointer;border-radius:7px;margin:1px 8px;font-size:13px;color:#8892a4;font-weight:500}
 .nav:hover{background:rgba(255,255,255,.07);color:#c8cdd8}
-.nav.active{background:linear-gradient(135deg,rgba(61,184,122,.18),rgba(74,144,217,.12));color:#3db87a;border:1px solid rgba(61,184,122,.2)}
-.nav svg{width:16px;height:16px;flex-shrink:0}
-.nav-sub{padding-left:38px;font-size:12px;margin:1px 10px}
-.sb-badge{font-size:9px;background:#e67e22;color:#fff;padding:3px 9px;border-radius:4px;margin:8px 18px;font-weight:700;letter-spacing:.04em;width:fit-content}
-.sb-foot{margin-top:auto;padding:14px 16px;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px}
-.ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#3db87a,#4a90d9);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
-
-/* MAIN */
-.main{flex:1;display:flex;flex-direction:column;margin-left:240px;min-height:100vh}
-.hero{background:linear-gradient(135deg,#2d9e66 0%,#3db87a 40%,#4a90d9 100%);padding:22px 30px;display:flex;align-items:center;justify-content:space-between}
-.hero h1{font-size:22px;font-weight:700;color:#fff;letter-spacing:-.3px}
-.hero p{font-size:13px;color:rgba(255,255,255,.85);margin-top:3px}
-.hero-btn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 18px;border-radius:9px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;font-weight:600;backdrop-filter:blur(10px)}
-.hero-btn:hover{background:rgba(255,255,255,.28)}
-.content{flex:1;padding:24px 28px;background:var(--bg)}
+.nav.active{background:rgba(61,184,122,.15);color:#3db87a;border:1px solid rgba(61,184,122,.2)}
+.nav svg{width:15px;height:15px;flex-shrink:0}
+.nav-sub{padding-left:36px;font-size:12px}
+.sb-badge{font-size:9px;background:#e67e22;color:#fff;padding:3px 9px;border-radius:4px;margin:8px 16px;font-weight:700;width:fit-content}
+.sb-foot{margin-top:auto;padding:12px 14px;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:9px}
+.ava{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#3db87a,#4a90d9);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0}
+.main{flex:1;display:flex;flex-direction:column;margin-left:230px;min-height:100vh}
+.hero{background:linear-gradient(135deg,#2d9e66,#4a90d9);padding:20px 28px;display:flex;align-items:center;justify-content:space-between}
+.hero h1{font-size:20px;font-weight:700;color:#fff}
+.hero p{font-size:13px;color:rgba(255,255,255,.85);margin-top:2px}
+.hero-btn{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;font-weight:600}
+.content{flex:1;padding:22px 26px}
 .view{display:none}.view.active{display:block}
-
-/* PANELS */
-.panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:18px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.pt{font-size:15px;font-weight:700;color:var(--text);letter-spacing:-.2px}
-.ps{font-size:12px;color:var(--text2);margin-top:3px}
-
-/* KPI CARDS - estilo referencia */
-.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
-.kpi{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;display:flex;justify-content:space-between;align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.04);position:relative;overflow:hidden}
-.kpi::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:14px 0 0 14px}
-.kpi.k-blue::before{background:#4a90d9}
-.kpi.k-green::before{background:#3db87a}
-.kpi.k-amber::before{background:#e67e22}
-.kpi.k-red::before{background:#e24b4a}
-.kl{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;font-weight:600}
-.kv{font-size:32px;font-weight:800;color:var(--text);line-height:1;letter-spacing:-1px}
-.ks{font-size:12px;color:var(--text2);margin-top:6px}
+.panel{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px 20px;margin-bottom:16px}
+.pt{font-size:14px;font-weight:700;color:#1a1f2e}
+.ps{font-size:12px;color:#6b7280;margin-top:2px}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.kpi{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:16px;display:flex;justify-content:space-between;align-items:flex-start;border-left:3px solid #e5e7eb}
+.kpi.kb{border-left-color:#4a90d9}.kpi.kg{border-left-color:#3db87a}.kpi.ka{border-left-color:#e67e22}.kpi.kr{border-left-color:#e24b4a}
+.kl{font-size:10px;color:#6b7280;text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;font-weight:600}
+.kv{font-size:30px;font-weight:800;color:#1a1f2e;line-height:1}
+.ks{font-size:12px;color:#6b7280;margin-top:5px}
 .ks.g{color:#3db87a;cursor:pointer;font-weight:500}
-.ks.g:hover{text-decoration:underline}
-.ki{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center}
-.ki svg{width:20px;height:20px}
-
-/* TABLES */
-.two{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}
+.ki{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.ki svg{width:19px;height:19px}
+.two{display:grid;grid-template-columns:1.5fr 1fr;gap:16px}
 table{width:100%;border-collapse:collapse;font-size:13px}
-thead th{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);font-weight:600}
-tbody td{padding:12px 12px;border-bottom:1px solid rgba(0,0,0,.05);color:var(--text);vertical-align:middle}
+thead th{font-size:11px;color:#9ca3af;text-transform:uppercase;letter-spacing:.07em;padding:8px 10px;text-align:left;border-bottom:1px solid #f0f0f0;font-weight:600}
+tbody td{padding:11px 10px;border-bottom:1px solid #f5f5f5;color:#1a1f2e;vertical-align:middle}
 tbody tr:last-child td{border-bottom:none}
-tbody tr:hover td{background:#fafbfc}
-
-/* BADGES */
-.badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.02em}
+tbody tr:hover td{background:#fafafa}
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700}
 .bg{background:#dcfce7;color:#166534}.bb{background:#dbeafe;color:#1e40af}.ba{background:#fef3c7;color:#92400e}.br{background:#fee2e2;color:#991b1b}.bp{background:#fce7f3;color:#831843}
-.wa{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-right:9px;vertical-align:middle;flex-shrink:0}
-
-/* BUTTONS */
-.btn-p{background:#3db87a;border:none;border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;color:#fff;font-weight:600;transition:all .15s}
-.btn-p:hover{background:#2ea368;transform:translateY(-1px)}
-.btn-s{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;color:var(--text2);font-weight:500;transition:all .15s}
-.btn-s:hover{background:var(--surface);border-color:#aaa}
-.btn-sm{font-size:12px;padding:6px 14px}
-.btn-blue{background:#4a90d9;border:none;border-radius:8px;padding:9px 18px;font-size:13px;cursor:pointer;color:#fff;font-weight:600}
-
-/* EVENTS */
-.ev-item{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.wa{width:28px;height:28px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;margin-right:8px;vertical-align:middle;flex-shrink:0}
+.btn-p{background:#3db87a;border:none;border-radius:7px;padding:8px 16px;font-size:13px;cursor:pointer;color:#fff;font-weight:600}
+.btn-s{background:#fff;border:1px solid #e5e7eb;border-radius:7px;padding:8px 16px;font-size:13px;cursor:pointer;color:#6b7280;font-weight:500}
+.btn-sm{font-size:12px;padding:5px 12px}
+.btn-bl{background:#4a90d9;border:none;border-radius:7px;padding:8px 16px;font-size:13px;cursor:pointer;color:#fff;font-weight:600}
+.ev-item{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid #f5f5f5}
 .ev-item:last-child{border-bottom:none}
-.dot{width:9px;height:9px;border-radius:50%;margin-right:11px;flex-shrink:0}
+.dot{width:8px;height:8px;border-radius:50%;margin-right:10px;flex-shrink:0}
 .dg{background:#3db87a}.da{background:#e67e22}.dgr{background:#d1d5db}
-
-/* TABS */
-.tab-row{display:flex;gap:0;border-bottom:1px solid var(--border);margin-bottom:20px}
-.tab{padding:10px 20px;font-size:13px;cursor:pointer;color:var(--text2);border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500;transition:all .15s}
-.tab:hover{color:var(--text)}
+.tab-row{display:flex;border-bottom:1px solid #e5e7eb;margin-bottom:16px}
+.tab{padding:9px 16px;font-size:13px;cursor:pointer;color:#6b7280;border-bottom:2px solid transparent;margin-bottom:-1px;font-weight:500}
 .tab.active{color:#3db87a;border-bottom-color:#3db87a;font-weight:700}
-
-/* FORMS */
-.fg{margin-bottom:16px}
-.fl{font-size:11px;color:var(--text2);margin-bottom:6px;display:block;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
-.fi{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:10px 13px;font-size:13px;background:var(--card);color:var(--text);outline:none;transition:border-color .15s;font-family:inherit}
-.fi:focus{border-color:#3db87a;box-shadow:0 0 0 3px rgba(61,184,122,.12)}
-.fta{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:10px 13px;font-size:13px;background:var(--card);color:var(--text);min-height:90px;resize:vertical;outline:none;font-family:inherit;transition:border-color .15s}
-.fta:focus{border-color:#3db87a;box-shadow:0 0 0 3px rgba(61,184,122,.12)}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-
-/* TOGGLES */
-.tog-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(0,0,0,.05)}
+.fg{margin-bottom:14px}
+.fl{font-size:11px;color:#6b7280;margin-bottom:5px;display:block;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
+.fi{width:100%;border:1px solid #e5e7eb;border-radius:8px;padding:9px 12px;font-size:13px;background:#f9fafb;color:#1a1f2e;outline:none;font-family:inherit}
+.fi:focus{border-color:#3db87a}
+.fta{width:100%;border:1px solid #e5e7eb;border-radius:8px;padding:9px 12px;font-size:13px;background:#f9fafb;color:#1a1f2e;min-height:80px;resize:vertical;outline:none;font-family:inherit}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tog-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f5f5f5}
 .tog-row:last-child{border-bottom:none}
-.tog-label{font-size:13px;color:var(--text);font-weight:600}
-.tog-sub{font-size:12px;color:var(--text2);margin-top:3px}
-.toggle{width:42px;height:24px;border-radius:12px;background:#e5e7eb;position:relative;cursor:pointer;flex-shrink:0;transition:background .25s}
+.tog-label{font-size:13px;color:#1a1f2e;font-weight:600}
+.tog-sub{font-size:12px;color:#6b7280;margin-top:2px}
+.toggle{width:40px;height:22px;border-radius:11px;background:#e5e7eb;position:relative;cursor:pointer;flex-shrink:0;transition:background .2s}
 .toggle.on{background:#3db87a}
-.toggle::after{content:'';width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:3px;left:3px;transition:left .25s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.toggle::after{content:'';width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;top:3px;left:3px;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .toggle.on::after{left:21px}
-
-/* CONFIG */
-.cfg-section{margin-bottom:20px}
-.cfg-title{font-size:11px;font-weight:700;color:var(--text3);margin-bottom:10px;padding-bottom:7px;border-bottom:1px solid var(--border);text-transform:uppercase;letter-spacing:.07em}
-.api-row{display:flex;align-items:center;gap:8px;margin-bottom:12px}
-.api-key{flex:1;border:1.5px solid var(--border);border-radius:8px;padding:9px 12px;font-size:12px;background:var(--surface);color:var(--text2);font-family:'SF Mono',monospace;letter-spacing:.02em}
-.api-status{font-size:11px;padding:4px 10px;border-radius:20px;font-weight:700;white-space:nowrap}
-.as-ok{background:#dcfce7;color:#166534}
-.as-pend{background:#fef3c7;color:#92400e}
-
-/* FEEDBACK */
-.fb-item{border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:14px;background:var(--card);box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.fb-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:10px;gap:14px}
-.fb-title{font-size:14px;font-weight:700;color:var(--text);letter-spacing:-.1px}
-.fb-meta{font-size:12px;color:var(--text3);margin-top:3px}
-.fb-body{font-size:13px;color:var(--text2);line-height:1.6}
-.fb-resp{background:#f0fdf4;border-radius:10px;padding:12px 14px;margin-top:12px;border-left:4px solid #3db87a}
-.resp-label{font-size:11px;color:#166534;font-weight:700;margin-bottom:5px;text-transform:uppercase;letter-spacing:.06em}
-.fb-resp-txt{font-size:13px;color:var(--text);line-height:1.55}
-
-/* BOT */
-.bot-panel{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:18px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.bot-hdr{background:linear-gradient(135deg,#2d9e66,#4a90d9);padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
-.bot-hdr-t{color:#fff;font-size:15px;font-weight:700;letter-spacing:-.2px}
-.bot-online{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.9);font-weight:500}
-.bot-dot{width:8px;height:8px;border-radius:50%;background:#7fff7f;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-.bot-msgs{padding:18px;min-height:260px;max-height:420px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:#f8f9fb}
-.msg-bot{max-width:80%;padding:12px 16px;border-radius:16px 16px 16px 4px;font-size:13px;line-height:1.65;background:var(--card);color:var(--text);border:1px solid var(--border);align-self:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.06)}
-.msg-u{max-width:80%;padding:12px 16px;border-radius:16px 16px 4px 16px;font-size:13px;line-height:1.65;background:linear-gradient(135deg,#3db87a,#2d9e66);color:#fff;align-self:flex-end;font-weight:500;box-shadow:0 2px 6px rgba(61,184,122,.3)}
-.bot-sugs{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 16px;background:#f8f9fb}
-.sug{background:var(--card);border:1.5px solid var(--border);border-radius:20px;padding:7px 14px;font-size:12px;color:var(--text);cursor:pointer;font-weight:500;transition:all .15s}
+.cfg-title{font-size:11px;font-weight:700;color:#9ca3af;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #f0f0f0;text-transform:uppercase;letter-spacing:.06em}
+.cfg-sec{margin-bottom:18px}
+.api-row{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.api-key{flex:1;border:1px solid #e5e7eb;border-radius:7px;padding:8px 10px;font-size:12px;background:#f9fafb;color:#6b7280;font-family:monospace}
+.api-st{font-size:11px;padding:3px 10px;border-radius:20px;font-weight:700;white-space:nowrap}
+.as-ok{background:#dcfce7;color:#166534}.as-pend{background:#fef3c7;color:#92400e}
+.fb-item{border:1px solid #e5e7eb;border-radius:10px;padding:14px 18px;margin-bottom:12px;background:#fff}
+.fb-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:12px}
+.fb-title{font-size:13px;font-weight:700;color:#1a1f2e}
+.fb-meta{font-size:11px;color:#9ca3af;margin-top:3px}
+.fb-body{font-size:13px;color:#6b7280;line-height:1.55}
+.fb-resp{background:#f0fdf4;border-radius:8px;padding:10px 14px;margin-top:10px;border-left:3px solid #3db87a}
+.resp-lbl{font-size:11px;color:#166534;font-weight:700;margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em}
+.fb-resp-txt{font-size:13px;color:#1a1f2e;line-height:1.5}
+.bot-panel{background:#fff;border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;margin-bottom:16px}
+.bot-hdr{background:linear-gradient(135deg,#2d9e66,#4a90d9);padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.bot-hdr-t{color:#fff;font-size:14px;font-weight:700}
+.bot-online{display:flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,.9)}
+.bot-dot{width:7px;height:7px;border-radius:50%;background:#7fff7f}
+.bot-msgs{padding:16px;min-height:240px;max-height:380px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#f8f9fb}
+.msg-bot{max-width:80%;padding:10px 14px;border-radius:14px 14px 14px 4px;font-size:13px;line-height:1.6;background:#fff;color:#1a1f2e;border:1px solid #e5e7eb;align-self:flex-start}
+.msg-u{max-width:80%;padding:10px 14px;border-radius:14px 14px 4px 14px;font-size:13px;line-height:1.6;background:#3db87a;color:#fff;align-self:flex-end;font-weight:500}
+.bot-sugs{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 14px;background:#f8f9fb}
+.sug{background:#fff;border:1px solid #e5e7eb;border-radius:20px;padding:6px 13px;font-size:12px;color:#1a1f2e;cursor:pointer;font-weight:500}
 .sug:hover{background:#eaf3de;border-color:#3db87a;color:#166534}
-.bot-ir{display:flex;gap:10px;padding:14px 18px;border-top:1px solid var(--border);background:var(--card)}
-.bot-in{flex:1;border:1.5px solid var(--border);border-radius:25px;padding:10px 18px;font-size:13px;background:var(--surface);color:var(--text);outline:none;font-family:inherit}
-.bot-in:focus{border-color:#3db87a;box-shadow:0 0 0 3px rgba(61,184,122,.1)}
-.bot-snd{background:linear-gradient(135deg,#3db87a,#2d9e66);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(61,184,122,.4);transition:all .15s}
-.bot-snd:hover{transform:scale(1.08)}
-.bot-snd svg{width:16px;height:16px;color:#fff}
-.bot-typing{font-size:12px;color:var(--text3);padding:0 18px 12px;background:#f8f9fb;font-style:italic;display:none}
-
-/* FORM CARDS */
-.form-card{border:1.5px solid var(--border);border-radius:14px;padding:18px;cursor:pointer;background:var(--card);transition:all .15s;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-.form-card:hover{border-color:#3db87a;box-shadow:0 4px 12px rgba(61,184,122,.15);transform:translateY(-1px)}
-.form-card.sel{border:2px solid #3db87a;box-shadow:0 4px 16px rgba(61,184,122,.2)}
-
-/* DROP ZONE */
-.drop-zone{border:2px dashed #d1d5db;border-radius:16px;padding:52px 32px;text-align:center;cursor:pointer;background:var(--card);transition:all .2s}
-.drop-zone:hover{border-color:#3db87a;background:#f0fdf4}
-
-select.fi option{background:var(--card);color:var(--text)}
-
-/* SYNC BTN estilo referencia */
-.sync-btn{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.35);color:#fff;padding:9px 18px;border-radius:9px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:7px;font-weight:600;backdrop-filter:blur(10px);transition:background .15s}
-.sync-btn:hover{background:rgba(255,255,255,.28)}
-@media(max-width:960px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}}
+.bot-typing{font-size:12px;color:#9ca3af;padding:0 16px 10px;background:#f8f9fb;display:none;font-style:italic}
+.bot-ir{display:flex;gap:8px;padding:12px 16px;border-top:1px solid #e5e7eb;background:#fff}
+.bot-in{flex:1;border:1px solid #e5e7eb;border-radius:24px;padding:9px 16px;font-size:13px;background:#f9fafb;color:#1a1f2e;outline:none;font-family:inherit}
+.bot-in:focus{border-color:#3db87a}
+.bot-snd{background:#3db87a;border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.bot-snd svg{width:15px;height:15px;color:#fff}
+.form-card{border:1px solid #e5e7eb;border-radius:12px;padding:16px;cursor:pointer;background:#fff}
+.form-card:hover{border-color:#3db87a}
+.form-card.sel{border:2px solid #3db87a}
 </style>
 </head>
 <body>
@@ -174,410 +118,384 @@ select.fi option{background:var(--card);color:var(--text)}
 <div class="sb">
   <div class="sb-logo">
     <div class="lc"><div class="lc1"></div><div class="lc2"></div></div>
-    <div class="sb-brand"><div class="sb-t">ISL</div><div class="sb-sub">Cuestionarios</div></div>
+    <div><div class="sb-t">ISL</div><div class="sb-sub">Cuestionarios</div></div>
   </div>
   <div class="sb-sec">Principal</div>
-  <div class="nav active" id="nav-inicio" data-nav="inicio">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Inicio
-  </div>
-  <div class="nav" id="nav-import" data-nav="import">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Importar Excel
-  </div>
-  <div class="nav" id="nav-trab" data-nav="trab">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Trabajadores
-  </div>
-  <div class="nav" id="nav-rep" data-nav="rep">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes
-  </div>
-  <div class="nav" id="nav-form" data-nav="form">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Formularios
-  </div>
+  <div class="nav active" id="nav-inicio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Inicio</div>
+  <div class="nav" id="nav-import"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Importar Excel</div>
+  <div class="nav" id="nav-trab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Trabajadores</div>
+  <div class="nav" id="nav-rep"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes</div>
+  <div class="nav" id="nav-form"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Formularios</div>
   <div class="sb-sec">Soporte</div>
-  <div class="nav" id="nav-asist" data-nav="asist">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Asistente ISL
-  </div>
-  <div class="nav" id="nav-fb" data-nav="fb">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Feedback
-  </div>
-  <div class="sb-sec">Configuración</div>
-  <div class="nav" id="nav-cfg" data-nav="cfg">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Configuración
-  </div>
-  <div class="nav nav-sub" id="nav-usr" data-nav="usr">Usuarios</div>
-  <div class="sb-badge">STAGING · DEMO</div>
+  <div class="nav" id="nav-asist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Asistente ISL</div>
+  <div class="nav" id="nav-fb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Feedback</div>
+  <div class="sb-sec">Configuracion</div>
+  <div class="nav" id="nav-cfg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Configuracion</div>
+  <div class="nav nav-sub" id="nav-usr">Usuarios</div>
+  <div class="sb-badge">STAGING - DEMO</div>
   <div class="sb-foot">
     <div class="ava">FD</div>
-    <div>
-      <div style="font-size:13px;color:#c8cdd8;font-weight:600">Florencia Dropulich</div>
-      <div style="font-size:11px;color:#555e72">Administrador</div>
-    </div>
+    <div><div style="font-size:12px;color:#c8cdd8;font-weight:600">Florencia Dropulich</div><div style="font-size:11px;color:#555e72">Administrador</div></div>
   </div>
 </div>
 
 <div class="main">
   <div class="hero">
     <div><h1 id="h-title">Hola, Florencia</h1><p id="h-sub"></p></div>
-    <button class="sync-btn" data-goto="import">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-      Importar Excel
-    </button>
+    <button class="hero-btn" id="btn-import-hero"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Importar Excel</button>
   </div>
   <div class="content">
 
-  <!-- INICIO -->
   <div class="view active" id="view-inicio">
     <div class="kpi-grid">
-      <div class="kpi k-blue"><div><div class="kl">Cuestionarios enviados</div><div class="kv">12</div><div class="ks">3 esta semana</div></div><div class="ki" style="background:#dbeafe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></div></div>
-      <div class="kpi k-green"><div><div class="kl">Respondieron</div><div class="kv" style="color:#3db87a">7</div><div class="ks g" data-goto="trab">ver efectivos →</div></div><div class="ki" style="background:#dcfce7"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg></div></div>
-      <div class="kpi k-amber"><div><div class="kl">En refuerzo</div><div class="kv" style="color:#e67e22">3</div><div class="ks">esperando respuesta</div></div><div class="ki" style="background:#fef3c7"><svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div></div>
-      <div class="kpi k-red"><div><div class="kl">No respondieron</div><div class="kv" style="color:#e24b4a">2</div><div class="ks">casos cerrados hoy</div></div><div class="ki" style="background:#fee2e2"><svg viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div>
+      <div class="kpi kb"><div><div class="kl">Cuestionarios enviados</div><div class="kv">12</div><div class="ks">3 esta semana</div></div><div class="ki" style="background:#dbeafe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></div></div>
+      <div class="kpi kg"><div><div class="kl">Respondieron</div><div class="kv" style="color:#3db87a">7</div><div class="ks g" id="link-efectivos">ver efectivos</div></div><div class="ki" style="background:#dcfce7"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg></div></div>
+      <div class="kpi ka"><div><div class="kl">En refuerzo</div><div class="kv" style="color:#e67e22">3</div><div class="ks">esperando respuesta</div></div><div class="ki" style="background:#fef3c7"><svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div></div>
+      <div class="kpi kr"><div><div class="kl">No respondieron</div><div class="kv" style="color:#e24b4a">2</div><div class="ks">casos cerrados hoy</div></div><div class="ki" style="background:#fee2e2"><svg viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div>
     </div>
     <div class="two">
       <div class="panel">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <div><div class="pt">Últimas respuestas</div><div class="ps">Seguimiento de cuestionarios enviados hoy</div></div>
-          <button class="btn-p btn-sm" data-goto="trab">Ver todos</button>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div><div class="pt">Ultimas respuestas</div><div class="ps">Seguimiento de cuestionarios enviados hoy</div></div>
+          <button class="btn-p btn-sm" id="btn-ver-todos">Ver todos</button>
         </div>
-        <table>
-          <thead><tr><th>Trabajador</th><th>Evento / Siniestro</th><th>Estado</th><th>Vía</th></tr></thead>
-          <tbody>
-            <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">JG</span>Juan García</td><td>SIN-2026-0042</td><td><span class="badge bg">Efectivo</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
-            <tr><td><span class="wa" style="background:#dcfce7;color:#166534">ML</span>María López</td><td>SIN-2026-0043</td><td><span class="badge bg">Efectivo</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
-            <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">CR</span>Carlos Rodríguez</td><td>SIN-2026-0044</td><td><span class="badge bb">Refuerzo 1</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
-            <tr><td><span class="wa" style="background:#fce7f3;color:#831843">AM</span>Ana Martínez</td><td>SIN-2026-0045</td><td><span class="badge bp">Refuerzo 2</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
-            <tr><td><span class="wa" style="background:#fee2e2;color:#991b1b">DG</span>Diego Gómez</td><td>SIN-2026-0046</td><td><span class="badge br">No respondió</span></td><td style="font-size:11px;color:#9ca3af">—</td></tr>
-          </tbody>
-        </table>
+        <table><thead><tr><th>Trabajador</th><th>Siniestro</th><th>Estado</th><th>Via</th></tr></thead><tbody>
+          <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">JG</span>Juan Garcia</td><td>SIN-2026-0042</td><td><span class="badge bg">Efectivo</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
+          <tr><td><span class="wa" style="background:#dcfce7;color:#166534">ML</span>Maria Lopez</td><td>SIN-2026-0043</td><td><span class="badge bg">Efectivo</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
+          <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">CR</span>Carlos Rodriguez</td><td>SIN-2026-0044</td><td><span class="badge bb">Refuerzo 1</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
+          <tr><td><span class="wa" style="background:#fce7f3;color:#831843">AM</span>Ana Martinez</td><td>SIN-2026-0045</td><td><span class="badge bp">Refuerzo 2</span></td><td style="font-size:11px;color:#9ca3af">WhatsApp</td></tr>
+          <tr><td><span class="wa" style="background:#fee2e2;color:#991b1b">DG</span>Diego Gomez</td><td>SIN-2026-0046</td><td><span class="badge br">No respondio</span></td><td style="font-size:11px;color:#9ca3af">-</td></tr>
+        </tbody></table>
       </div>
       <div class="panel">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
-          <div><div class="pt">Eventos activos</div><div class="ps">Procesos de seguimiento en curso</div></div>
-          <button class="btn-blue btn-sm">+ Nueva</button>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+          <div><div class="pt">Eventos activos</div><div class="ps">Procesos en curso</div></div>
+          <button class="btn-bl btn-sm">+ Nueva</button>
         </div>
-        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot dg"></div><div><div style="font-size:13px;font-weight:600">Siniestro Vial — Provincia ART</div><div style="font-size:12px;color:#9ca3af">8 trabajadores · 6 respondieron</div></div></div><span style="color:#d1d5db;font-size:18px">›</span></div>
-        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot da"></div><div><div style="font-size:13px;font-weight:600">Accidente Laboral — Galeno ART</div><div style="font-size:12px;color:#9ca3af">5 trabajadores · 2 respondieron</div></div></div><span style="color:#d1d5db;font-size:18px">›</span></div>
-        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot dgr"></div><div><div style="font-size:13px;font-weight:600">Control Periódico — Swiss Medical</div><div style="font-size:12px;color:#9ca3af">3 trabajadores · Cerrado</div></div></div><span style="color:#d1d5db;font-size:18px">›</span></div>
-        <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)">
-          <div style="font-size:11px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Próximos vencimientos</div>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-weight:500">Carlos Rodríguez</span><span style="color:#e67e22;font-weight:600;font-size:12px;background:#fef3c7;padding:3px 9px;border-radius:20px">Vence en 3hs</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px"><span style="font-weight:500">Ana Martínez</span><span style="color:#991b1b;font-weight:600;font-size:12px;background:#fee2e2;padding:3px 9px;border-radius:20px">Vence en 1hs</span></div>
+        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot dg"></div><div><div style="font-size:13px;font-weight:600">Siniestro Vial - Provincia ART</div><div style="font-size:12px;color:#9ca3af">8 trabajadores</div></div></div></div>
+        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot da"></div><div><div style="font-size:13px;font-weight:600">Accidente Laboral - Galeno ART</div><div style="font-size:12px;color:#9ca3af">5 trabajadores</div></div></div></div>
+        <div class="ev-item"><div style="display:flex;align-items:center"><div class="dot dgr"></div><div><div style="font-size:13px;font-weight:600">Control - Swiss Medical</div><div style="font-size:12px;color:#9ca3af">3 trabajadores</div></div></div></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0">
+          <div style="font-size:11px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Proximos vencimientos</div>
+          <div style="display:flex;flex-direction:column;gap:7px">
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="font-weight:500">Carlos Rodriguez</span><span style="color:#e67e22;font-weight:600;font-size:11px;background:#fef3c7;padding:2px 8px;border-radius:20px">Vence en 3hs</span></div>
+            <div style="display:flex;justify-content:space-between;font-size:13px"><span style="font-weight:500">Ana Martinez</span><span style="color:#991b1b;font-weight:600;font-size:11px;background:#fee2e2;padding:2px 8px;border-radius:20px">Vence en 1hs</span></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- IMPORTAR EXCEL -->
   <div class="view" id="view-import">
-    <div class="panel" style="text-align:center;padding:56px">
-      <div style="width:60px;height:60px;border-radius:18px;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" style="width:30px;height:30px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg></div>
-      <div style="font-size:18px;font-weight:700;margin-bottom:8px;letter-spacing:-.2px">Importar Excel diario</div>
-      <div style="font-size:14px;color:#6b7280;margin-bottom:24px">Arrastrá tu archivo Excel con los trabajadores del día o hacé clic para seleccionarlo</div>
-      <button class="btn-p" style="padding:11px 28px;font-size:14px">Seleccionar archivo</button>
-      <div style="font-size:12px;color:#9ca3af;margin-top:14px">Formatos aceptados: .xlsx, .xls, .csv — Máximo 10 MB</div>
+    <div class="panel" style="text-align:center;padding:52px">
+      <div style="width:56px;height:56px;border-radius:16px;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" style="width:28px;height:28px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="12" y2="12"/><line x1="15" y1="15" x2="12" y2="12"/></svg></div>
+      <div style="font-size:17px;font-weight:700;margin-bottom:8px">Importar Excel diario</div>
+      <div style="font-size:13px;color:#6b7280;margin-bottom:20px">Arrasta tu archivo Excel con los trabajadores del dia</div>
+      <button class="btn-p" style="padding:10px 24px">Seleccionar archivo</button>
+      <div style="font-size:11px;color:#9ca3af;margin-top:12px">Formatos: .xlsx, .xls, .csv - Max 10 MB</div>
     </div>
-    <div class="panel">
-      <div class="pt" style="margin-bottom:16px">Historial de importaciones</div>
-      <table><thead><tr><th>Archivo</th><th>Fecha</th><th>Trabajadores</th><th>Procesados</th><th>Estado</th></tr></thead><tbody>
-        <tr><td>trabajadores_06-04-2026.xlsx</td><td>Hoy 08:00</td><td>12</td><td>12</td><td><span class="badge bg">Completado</span></td></tr>
-        <tr><td>listado_05-04-2026.xlsx</td><td>Ayer 08:15</td><td>8</td><td>8</td><td><span class="badge bg">Completado</span></td></tr>
-        <tr><td>siniestros_04-04-2026.xlsx</td><td>04/04/2026</td><td>5</td><td>4</td><td><span class="badge ba">Con advertencias</span></td></tr>
-        <tr><td>control_03-04-2026.xlsx</td><td>03/04/2026</td><td>3</td><td>3</td><td><span class="badge bg">Completado</span></td></tr>
+    <div class="panel"><div class="pt" style="margin-bottom:14px">Historial de importaciones</div>
+      <table><thead><tr><th>Archivo</th><th>Fecha</th><th>Trabajadores</th><th>Estado</th></tr></thead><tbody>
+        <tr><td>trabajadores_06-04-2026.xlsx</td><td>Hoy 08:00</td><td>12</td><td><span class="badge bg">Completado</span></td></tr>
+        <tr><td>listado_05-04-2026.xlsx</td><td>Ayer 08:15</td><td>8</td><td><span class="badge bg">Completado</span></td></tr>
+        <tr><td>siniestros_04-04-2026.xlsx</td><td>04/04/2026</td><td>5</td><td><span class="badge ba">Con advertencias</span></td></tr>
       </tbody></table>
     </div>
   </div>
 
-  <!-- TRABAJADORES -->
   <div class="view" id="view-trab">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-      <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Trabajadores</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Seguimiento de cuestionarios enviados</div></div>
-      <div style="display:flex;gap:10px"><button class="btn-s btn-sm" data-goto="import">Importar Excel</button><button class="btn-p btn-sm">+ Agregar</button></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div><div style="font-size:20px;font-weight:700">Trabajadores</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Seguimiento de cuestionarios</div></div>
+      <div style="display:flex;gap:8px"><button class="btn-s btn-sm" id="btn-ir-import">Importar Excel</button><button class="btn-p btn-sm">+ Agregar</button></div>
     </div>
-    <div class="panel">
-      <table><thead><tr><th>Trabajador</th><th>Siniestro / Evento</th><th>Cliente (ART)</th><th>Enviado</th><th>Estado</th><th>Vía</th><th>Acciones</th></tr></thead><tbody>
-        <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">JG</span>Juan García</td><td>SIN-2026-0042</td><td>Provincia ART</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Ver resp.</button></td></tr>
-        <tr><td><span class="wa" style="background:#dcfce7;color:#166534">ML</span>María López</td><td>SIN-2026-0043</td><td>Provincia ART</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Ver resp.</button></td></tr>
-        <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">CR</span>Carlos Rodríguez</td><td>SIN-2026-0044</td><td>Galeno ART</td><td>05/04/2026</td><td><span class="badge bb">Refuerzo 1</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#e67e22;background:none;border:none;cursor:pointer;font-weight:600">Reenviar</button></td></tr>
-        <tr><td><span class="wa" style="background:#fce7f3;color:#831843">AM</span>Ana Martínez</td><td>SIN-2026-0045</td><td>Galeno ART</td><td>04/04/2026</td><td><span class="badge bp">Refuerzo 2</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#e67e22;background:none;border:none;cursor:pointer;font-weight:600">Reenviar</button></td></tr>
-        <tr><td><span class="wa" style="background:#fee2e2;color:#991b1b">DG</span>Diego Gómez</td><td>SIN-2026-0046</td><td>Provincia ART</td><td>03/04/2026</td><td><span class="badge br">No respondió</span></td><td>—</td><td><button style="font-size:12px;color:#991b1b;background:none;border:none;cursor:pointer;font-weight:600">Cerrar ev.</button></td></tr>
-        <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">RS</span>Roberto Sánchez</td><td>SIN-2026-0047</td><td>Swiss Medical</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Ver resp.</button></td></tr>
-        <tr><td><span class="wa" style="background:#dcfce7;color:#166534">LF</span>Laura Fernández</td><td>SIN-2026-0048</td><td>Swiss Medical</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Ver resp.</button></td></tr>
-      </tbody></table>
-    </div>
+    <div class="panel"><table><thead><tr><th>Trabajador</th><th>Siniestro</th><th>Cliente (ART)</th><th>Enviado</th><th>Estado</th><th>Via</th></tr></thead><tbody>
+      <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">JG</span>Juan Garcia</td><td>SIN-2026-0042</td><td>Provincia ART</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td></tr>
+      <tr><td><span class="wa" style="background:#dcfce7;color:#166534">ML</span>Maria Lopez</td><td>SIN-2026-0043</td><td>Provincia ART</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td></tr>
+      <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">CR</span>Carlos Rodriguez</td><td>SIN-2026-0044</td><td>Galeno ART</td><td>05/04/2026</td><td><span class="badge bb">Refuerzo 1</span></td><td>WhatsApp</td></tr>
+      <tr><td><span class="wa" style="background:#fce7f3;color:#831843">AM</span>Ana Martinez</td><td>SIN-2026-0045</td><td>Galeno ART</td><td>04/04/2026</td><td><span class="badge bp">Refuerzo 2</span></td><td>WhatsApp</td></tr>
+      <tr><td><span class="wa" style="background:#fee2e2;color:#991b1b">DG</span>Diego Gomez</td><td>SIN-2026-0046</td><td>Provincia ART</td><td>03/04/2026</td><td><span class="badge br">No respondio</span></td><td>-</td></tr>
+      <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">RS</span>Roberto Sanchez</td><td>SIN-2026-0047</td><td>Swiss Medical</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td></tr>
+      <tr><td><span class="wa" style="background:#dcfce7;color:#166534">LF</span>Laura Fernandez</td><td>SIN-2026-0048</td><td>Swiss Medical</td><td>06/04/2026</td><td><span class="badge bg">Efectivo</span></td><td>WhatsApp</td></tr>
+    </tbody></table></div>
   </div>
 
-  <!-- REPORTES -->
   <div class="view" id="view-rep">
-    <div style="margin-bottom:20px"><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Reportes</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Exportá los datos en el formato que necesites</div></div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
-      <div class="panel" style="text-align:center;cursor:pointer;transition:all .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;border-radius:50%;background:#dbeafe;display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" style="width:22px;height:22px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div>
-        <div style="font-size:15px;font-weight:700;letter-spacing:-.1px">Texto copiable</div>
-        <div style="font-size:13px;color:#6b7280;margin-top:5px">Para pegar en otro sistema</div>
-      </div>
-      <div class="panel" style="text-align:center;cursor:pointer;transition:all .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" style="width:22px;height:22px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div>
-        <div style="font-size:15px;font-weight:700;letter-spacing:-.1px">Excel / CSV</div>
-        <div style="font-size:13px;color:#6b7280;margin-top:5px">Planilla descargable</div>
-      </div>
-      <div class="panel" style="text-align:center;cursor:pointer;transition:all .15s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-        <div style="width:46px;height:46px;border-radius:50%;background:#fee2e2;display:flex;align-items:center;justify-content:center;margin:0 auto 14px"><svg viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2" style="width:22px;height:22px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
-        <div style="font-size:15px;font-weight:700;letter-spacing:-.1px">PDF</div>
-        <div style="font-size:13px;color:#6b7280;margin-top:5px">Documento formal</div>
-      </div>
+    <div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700">Reportes</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Exporta los datos en el formato que necesites</div></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px">
+      <div class="panel" style="text-align:center;cursor:pointer"><div style="width:42px;height:42px;border-radius:50%;background:#dbeafe;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2" style="width:20px;height:20px"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div><div style="font-size:14px;font-weight:700">Texto copiable</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Para pegar en otro sistema</div></div>
+      <div class="panel" style="text-align:center;cursor:pointer"><div style="width:42px;height:42px;border-radius:50%;background:#dcfce7;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2" style="width:20px;height:20px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg></div><div style="font-size:14px;font-weight:700">Excel / CSV</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Planilla descargable</div></div>
+      <div class="panel" style="text-align:center;cursor:pointer"><div style="width:42px;height:42px;border-radius:50%;background:#fee2e2;display:flex;align-items:center;justify-content:center;margin:0 auto 12px"><svg viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2" style="width:20px;height:20px"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div><div style="font-size:14px;font-weight:700">PDF</div><div style="font-size:12px;color:#6b7280;margin-top:4px">Documento formal</div></div>
     </div>
-    <div class="panel">
-      <div class="pt" style="margin-bottom:16px">Resumen por evento — hoy 06/04/2026</div>
-      <table><thead><tr><th>Evento / ART</th><th>Enviados</th><th>Efectivos</th><th>Ref. 1</th><th>Ref. 2</th><th>Sin resp.</th><th>% Respuesta</th></tr></thead><tbody>
-        <tr><td style="font-weight:600">Siniestro Vial · Provincia ART</td><td>8</td><td style="color:#3db87a;font-weight:700">6</td><td>1</td><td>0</td><td>1</td><td><span style="color:#3db87a;font-weight:700">75%</span></td></tr>
-        <tr><td style="font-weight:600">Accidente Laboral · Galeno ART</td><td>5</td><td style="color:#3db87a;font-weight:700">2</td><td>1</td><td>1</td><td>1</td><td><span style="color:#e67e22;font-weight:700">40%</span></td></tr>
-        <tr><td style="font-weight:600">Control Periódico · Swiss Medical</td><td>3</td><td style="color:#3db87a;font-weight:700">1</td><td>0</td><td>1</td><td>1</td><td><span style="color:#e24b4a;font-weight:700">33%</span></td></tr>
-        <tr style="background:#f8f9fa"><td style="font-weight:700">Total</td><td style="font-weight:700">16</td><td style="color:#3db87a;font-weight:700">9</td><td style="font-weight:700">2</td><td style="font-weight:700">2</td><td style="font-weight:700">3</td><td><span style="color:#3db87a;font-weight:700">56%</span></td></tr>
+    <div class="panel"><div class="pt" style="margin-bottom:14px">Resumen por evento</div>
+      <table><thead><tr><th>Evento / ART</th><th>Enviados</th><th>Efectivos</th><th>Ref. 1</th><th>Ref. 2</th><th>Sin resp.</th><th>% Resp.</th></tr></thead><tbody>
+        <tr><td style="font-weight:600">Siniestro Vial - Provincia ART</td><td>8</td><td style="color:#3db87a;font-weight:700">6</td><td>1</td><td>0</td><td>1</td><td><span style="color:#3db87a;font-weight:700">75%</span></td></tr>
+        <tr><td style="font-weight:600">Accidente Laboral - Galeno ART</td><td>5</td><td style="color:#3db87a;font-weight:700">2</td><td>1</td><td>1</td><td>1</td><td><span style="color:#e67e22;font-weight:700">40%</span></td></tr>
+        <tr><td style="font-weight:600">Control - Swiss Medical</td><td>3</td><td style="color:#3db87a;font-weight:700">1</td><td>0</td><td>1</td><td>1</td><td><span style="color:#e24b4a;font-weight:700">33%</span></td></tr>
       </tbody></table>
     </div>
   </div>
 
-  <!-- FORMULARIOS -->
   <div class="view" id="view-form">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-      <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Formularios</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Cuestionarios configurados por cliente ART</div></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div><div style="font-size:20px;font-weight:700">Formularios</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Cuestionarios por cliente ART</div></div>
       <button class="btn-p btn-sm">+ Nuevo formulario</button>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
-      <div class="form-card sel">
-        <span style="font-size:10px;background:#dcfce7;color:#166534;padding:3px 10px;border-radius:20px;font-weight:700">Por defecto</span>
-        <div style="font-size:14px;font-weight:700;margin-top:12px;letter-spacing:-.1px">Siniestro Vial</div>
-        <div style="font-size:12px;color:#6b7280;margin-top:3px;font-weight:500">Provincia ART</div>
-        <div style="font-size:12px;color:#9ca3af;margin-top:10px">18 preguntas · 10 base + 8 variables</div>
-      </div>
-      <div class="form-card">
-        <div style="font-size:14px;font-weight:700;letter-spacing:-.1px">Accidente Laboral</div>
-        <div style="font-size:12px;color:#6b7280;margin-top:3px;font-weight:500">Galeno ART</div>
-        <div style="font-size:12px;color:#9ca3af;margin-top:10px">14 preguntas · 10 base + 4 variables</div>
-      </div>
-      <div class="form-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100px" onclick="">
-        <div style="width:36px;height:36px;border-radius:50%;background:#f3f4f6;display:flex;align-items:center;justify-content:center;margin-bottom:8px"><svg viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" style="width:18px;height:18px"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        <div style="font-size:13px;color:#9ca3af;font-weight:500">Nuevo formulario</div>
-      </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px">
+      <div class="form-card sel"><span style="font-size:10px;background:#dcfce7;color:#166534;padding:2px 9px;border-radius:20px;font-weight:700">Por defecto</span><div style="font-size:14px;font-weight:700;margin-top:10px">Siniestro Vial</div><div style="font-size:12px;color:#6b7280;margin-top:3px">Provincia ART</div><div style="font-size:12px;color:#9ca3af;margin-top:8px">18 preguntas</div></div>
+      <div class="form-card"><div style="font-size:14px;font-weight:700">Accidente Laboral</div><div style="font-size:12px;color:#6b7280;margin-top:3px">Galeno ART</div><div style="font-size:12px;color:#9ca3af;margin-top:8px">14 preguntas</div></div>
+      <div class="form-card" style="border-style:dashed;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90px"><div style="font-size:13px;color:#9ca3af;font-weight:500">+ Nuevo formulario</div></div>
     </div>
-    <div class="panel">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
-        <div><div class="pt">Siniestro Vial — Provincia ART</div><div class="ps">Cuestionario base · 10 preguntas fijas + 8 variables según caso</div></div>
-        <div style="display:flex;gap:8px"><button class="btn-s btn-sm">Editar intro</button><button class="btn-p btn-sm">+ Pregunta</button></div>
-      </div>
-      <div class="tab-row" style="margin-bottom:16px">
-        <div class="tab active">Preguntas base (10)</div>
-        <div class="tab">Preguntas variables (8)</div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:10px">
-        <div style="background:#f8f9fb;border-radius:10px;padding:12px 16px;font-size:13px;display:flex;align-items:center;justify-content:space-between"><span>¿Confirmás tus datos de contacto?</span><div style="display:flex;gap:6px"><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-weight:600">Texto libre</span><span style="font-size:11px;color:#3db87a;font-weight:600">Obligatoria</span></div></div>
-        <div style="background:#f8f9fb;border-radius:10px;padding:12px 16px;font-size:13px;display:flex;align-items:center;justify-content:space-between"><span>¿Cómo ocurrió el accidente?</span><div style="display:flex;gap:6px"><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-weight:600">Texto libre</span><span style="font-size:11px;color:#3db87a;font-weight:600">Obligatoria</span></div></div>
-        <div style="background:#f8f9fb;border-radius:10px;padding:12px 16px;font-size:13px;display:flex;align-items:center;justify-content:space-between"><span>¿Tenés alguna patología de base? ¿Cuál?</span><div style="display:flex;gap:6px"><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-weight:600">Sí / No + detalle</span></div></div>
-        <div style="background:#f8f9fb;border-radius:10px;padding:12px 16px;font-size:13px;display:flex;align-items:center;justify-content:space-between"><span>¿Qué lesiones te produjo el accidente?</span><div style="display:flex;gap:6px"><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-weight:600">Texto libre</span><span style="font-size:11px;color:#3db87a;font-weight:600">Obligatoria</span></div></div>
-        <div style="background:#f8f9fb;border-radius:10px;padding:12px 16px;font-size:13px;display:flex;align-items:center;justify-content:space-between"><span>¿Cuál es tu horario laboral?</span><div style="display:flex;gap:6px"><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:3px 9px;border-radius:20px;font-weight:600">Texto libre</span><span style="font-size:11px;color:#3db87a;font-weight:600">Obligatoria</span></div></div>
+    <div class="panel"><div class="pt" style="margin-bottom:14px">Siniestro Vial - Provincia ART</div>
+      <div style="display:flex;flex-direction:column;gap:9px">
+        <div style="background:#f9fafb;border-radius:8px;padding:11px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center"><span>Confirmas tus datos de contacto?</span><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-weight:600">Texto libre</span></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:11px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center"><span>Como ocurrio el accidente?</span><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-weight:600">Texto libre</span></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:11px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center"><span>Tenes alguna patologia de base?</span><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-weight:600">Si / No</span></div>
+        <div style="background:#f9fafb;border-radius:8px;padding:11px 14px;font-size:13px;display:flex;justify-content:space-between;align-items:center"><span>Que lesiones te produjo el accidente?</span><span style="font-size:11px;background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:20px;font-weight:600">Texto libre</span></div>
       </div>
     </div>
   </div>
 
-  <!-- ASISTENTE ISL -->
   <div class="view" id="view-asist">
-    <div style="margin-bottom:20px"><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Asistente ISL</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Consultas sobre el sistema, casos activos y flujos de trabajo</div></div>
+    <div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700">Asistente ISL</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Consultas sobre el sistema y flujos de trabajo</div></div>
     <div class="bot-panel">
-      <div class="bot-hdr">
-        <div><div class="bot-hdr-t">Asistente ISL</div><div class="bot-online"><div class="bot-dot"></div>En línea · ISL Medicina Empresarial</div></div>
-        <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.6)" stroke-width="2" style="width:18px;height:18px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      </div>
+      <div class="bot-hdr"><div><div class="bot-hdr-t">Asistente ISL</div><div class="bot-online"><div class="bot-dot"></div>En linea</div></div></div>
       <div class="bot-msgs" id="asist-msgs">
-        <div class="msg-bot">Hola Florencia! Soy el asistente del sistema ISL de Medicina Empresarial.<br><br>Puedo ayudarte con:<br>• Consultas sobre casos activos y estados de seguimiento<br>• Cómo funciona el flujo de refuerzos automáticos<br>• Configuración de formularios por cliente ART<br>• Importación de Excel y exportación de reportes<br>• Cualquier duda operativa del sistema<br><br>¿En qué te ayudo hoy?</div>
+        <div class="msg-bot">Hola Florencia! Soy el asistente del sistema ISL.<br><br>Puedo ayudarte con consultas sobre casos activos, estados del flujo, configuracion de formularios por ART, importacion de Excel y reportes.<br><br>En que te ayudo hoy?</div>
       </div>
       <div class="bot-sugs" id="asist-sugs">
-        <div class="sug" data-ask="¿Cuántos casos están en Refuerzo 2 hoy y quiénes son?">¿Quiénes están en Refuerzo 2?</div>
-        <div class="sug" data-ask="¿Cómo funciona el flujo de plazos y refuerzos automáticos de 24hs?">¿Cómo funcionan los plazos?</div>
-        <div class="sug" data-ask="¿Cómo configuro un nuevo formulario para un cliente ART nuevo?">Configurar formulario nuevo</div>
-        <div class="sug" data-ask="¿Cómo exporto el reporte del día de hoy en Excel?">Exportar reporte de hoy</div>
-        <div class="sug" data-ask="¿Qué pasa cuando un trabajador no responde ninguno de los dos refuerzos?">¿Qué pasa si no responde?</div>
+        <div class="sug" id="sug1">Quienes estan en Refuerzo 2?</div>
+        <div class="sug" id="sug2">Como funcionan los plazos?</div>
+        <div class="sug" id="sug3">Agregar formulario nuevo</div>
+        <div class="sug" id="sug4">Exportar reporte de hoy</div>
+        <div class="sug" id="sug5">Que pasa si no responde?</div>
       </div>
       <div class="bot-typing" id="asist-typing">Escribiendo...</div>
       <div class="bot-ir">
-        <input class="bot-in" id="asist-in" placeholder="Escribí tu consulta sobre el sistema ISL..." onkeydown="if(event.key==='Enter')sendAsist()"/>
-        <button class="bot-snd" onclick="sendAsist()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></button>
+        <input class="bot-in" id="asist-in" placeholder="Escribi tu consulta sobre el sistema ISL..."/>
+        <button class="bot-snd" id="bot-send-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></button>
       </div>
     </div>
   </div>
 
-  <!-- FEEDBACK -->
   <div class="view" id="view-fb">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-      <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Feedback y soporte</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Reportá problemas, sugerencias o consultas al equipo de desarrollo</div></div>
-      <button class="btn-p btn-sm" data-fb-toggle="1">+ Nuevo feedback</button>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div><div style="font-size:20px;font-weight:700">Feedback y soporte</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Reporta problemas o sugerencias al equipo de desarrollo</div></div>
+      <button class="btn-p btn-sm" id="btn-nuevo-fb">+ Nuevo feedback</button>
     </div>
     <div id="fb-form-wrap" style="display:none">
-      <div class="panel" style="border:2px solid #3db87a;margin-bottom:20px">
-        <div class="pt" style="margin-bottom:18px">Enviar nuevo feedback</div>
+      <div class="panel" style="border:2px solid #3db87a;margin-bottom:18px">
+        <div class="pt" style="margin-bottom:16px">Enviar nuevo feedback</div>
         <div class="frow"><div class="fg"><label class="fl">Tipo</label><select class="fi"><option>Error / Bug</option><option>Nueva funcionalidad</option><option>Mejora</option><option>Consulta</option></select></div><div class="fg"><label class="fl">Prioridad</label><select class="fi"><option>Alta</option><option>Media</option><option>Baja</option></select></div></div>
-        <div class="fg"><label class="fl">Título</label><input class="fi" placeholder="Resumí el problema o sugerencia en una línea"/></div>
-        <div class="fg"><label class="fl">Descripción</label><textarea class="fta" placeholder="Describí con el mayor detalle posible. Incluí pasos para reproducir el problema si es un bug..."></textarea></div>
-        <div style="display:flex;gap:10px;justify-content:flex-end">
-          <button class="btn-s" onclick="document.getElementById('fb-form-wrap').style.display='none'">Cancelar</button>
-          <button class="btn-p" onclick="document.getElementById('fb-form-wrap').style.display='none'">Enviar feedback</button>
+        <div class="fg"><label class="fl">Descripcion</label><textarea class="fta" placeholder="Describí el problema o sugerencia..."></textarea></div>
+        <div style="display:flex;gap:8px;justify-content:flex-end">
+          <button class="btn-s" id="btn-cancel-fb">Cancelar</button>
+          <button class="btn-p" id="btn-enviar-fb">Enviar</button>
         </div>
       </div>
     </div>
     <div class="tab-row">
-      <div class="tab active" data-fbtab="abiertos">Abiertos (3)</div>
-      <div class="tab" data-fbtab="resueltos">Resueltos (2)</div>
-      <div class="tab" data-fbtab="todos">Todos (5)</div>
+      <div class="tab active" id="tab-abiertos">Abiertos (3)</div>
+      <div class="tab" id="tab-resueltos">Resueltos (2)</div>
+      <div class="tab" id="tab-todos">Todos</div>
     </div>
     <div id="fb-abiertos">
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El Excel no parsea bien cuando hay celdas vacías en "celular"</div><div class="fb-meta">Error · Prioridad alta · Abierto hace 2 días · #001</div></div><span class="badge ba">En revisión</span></div><div class="fb-body">Cuando subo el Excel y algunos trabajadores no tienen celular cargado, el sistema tira un error en el parseo y no procesa ninguna fila, ni las que sí tienen celular.</div><div class="fb-resp"><div class="resp-label">Respuesta del equipo</div><div class="fb-resp-txt">Identificamos el problema. Es un bug en el validador de columnas opcionales. Estamos trabajando en el fix, estimamos resolverlo en 48hs. Mientras tanto podés poner un guión "—" en las celdas vacías de celular.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Necesito poder agregar un campo "Nro. de expediente" al formulario</div><div class="fb-meta">Nueva funcionalidad · Prioridad media · Abierto hace 5 días · #002</div></div><span class="badge bb">Planificado</span></div><div class="fb-body">Algunos clientes me piden que incluya el número de expediente en los reportes pero no hay campo para cargarlo actualmente.</div><div class="fb-resp"><div class="resp-label">Respuesta del equipo</div><div class="fb-resp-txt">Agregado al backlog como prioridad media. Lo incluiremos en el próximo release junto con otros campos customizables por ART. Te avisamos cuando esté disponible.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">¿Puedo configurar que el Refuerzo 2 se envíe a las 36hs en vez de 48hs?</div><div class="fb-meta">Consulta · Prioridad baja · Abierto ayer · #003</div></div><span class="badge bg">Respondido</span></div><div class="fb-body">Para un cliente específico necesito tiempos distintos de refuerzo al estándar del sistema.</div><div class="fb-resp"><div class="resp-label">Respuesta del equipo</div><div class="fb-resp-txt">Sí, es posible. En Configuración → Flujo de trabajo podés ajustar los plazos. Si no ves esa opción habilitada escribinos que te damos acceso.</div></div></div>
+      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El Excel no parsea bien cuando hay celdas vacias en "celular"</div><div class="fb-meta">Error - Prioridad alta - Abierto hace 2 dias</div></div><span class="badge ba">En revision</span></div><div class="fb-body">Cuando subo el Excel y algunos trabajadores no tienen celular cargado, el sistema tira error en el parseo.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Identificamos el problema. Fix estimado en 48hs. Mientras tanto pone un guion en las celdas vacias de celular.</div></div></div>
+      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Necesito poder agregar un campo "Nro. de expediente"</div><div class="fb-meta">Nueva funcionalidad - Prioridad media - Abierto hace 5 dias</div></div><span class="badge bb">Planificado</span></div><div class="fb-body">Algunos clientes piden que incluya el numero de expediente en los reportes.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Agregado al backlog. Lo incluimos en el proximo release.</div></div></div>
+      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Puedo configurar que el Refuerzo 2 se envie a las 36hs?</div><div class="fb-meta">Consulta - Abierto ayer</div></div><span class="badge bg">Respondido</span></div><div class="fb-body">Para un cliente especifico necesito tiempos distintos.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Si, en Configuracion - Flujo de trabajo podes ajustar los plazos.</div></div></div>
     </div>
     <div id="fb-resueltos" style="display:none">
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Error al generar PDF con caracteres especiales (tildes y eñes)</div><div class="fb-meta">Error · Resuelto el 02/04/2026 · #004</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">Los reportes PDF no mostraban bien tildes y eñes. Los nombres de los trabajadores salían con caracteres extraños.</div><div class="fb-resp"><div class="resp-label">Solución aplicada</div><div class="fb-resp-txt">Corregido en la versión 1.2.1. El generador de PDF ahora usa codificación UTF-8 correctamente. Verificá que tus reportes estén bien.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El asistente no recordaba el contexto entre mensajes de la conversación</div><div class="fb-meta">Error · Resuelto el 30/03/2026 · #005</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">El asistente respondía cada pregunta como si fuera la primera, sin considerar los mensajes anteriores de la conversación.</div><div class="fb-resp"><div class="resp-label">Solución aplicada</div><div class="fb-resp-txt">Se implementó memoria de conversación. Ahora el asistente mantiene el contexto durante toda la sesión activa.</div></div></div>
+      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Error al generar PDF con caracteres especiales</div><div class="fb-meta">Error - Resuelto el 02/04/2026</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">Los reportes PDF no mostraban bien tildes y enes.</div><div class="fb-resp"><div class="resp-lbl">Solucion aplicada</div><div class="fb-resp-txt">Corregido en version 1.2.1. El PDF ahora usa UTF-8 correctamente.</div></div></div>
+      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El asistente no recordaba el contexto entre mensajes</div><div class="fb-meta">Error - Resuelto el 30/03/2026</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">El asistente respondia sin considerar mensajes anteriores.</div><div class="fb-resp"><div class="resp-lbl">Solucion aplicada</div><div class="fb-resp-txt">Se implemento memoria de conversacion durante la sesion activa.</div></div></div>
     </div>
-    <div id="fb-todos" style="display:none"><div style="text-align:center;padding:48px;color:#9ca3af;font-size:13px">Mostrando todos los tickets — usá las pestañas de arriba para filtrar por estado.</div></div>
+    <div id="fb-todos" style="display:none"><div style="text-align:center;padding:40px;color:#9ca3af;font-size:13px">Usa las pestanas de arriba para filtrar.</div></div>
   </div>
 
-  <!-- CONFIGURACIÓN -->
   <div class="view" id="view-cfg">
-    <div style="margin-bottom:20px"><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Configuración</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Ajustes generales del sistema ISL</div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
+    <div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700">Configuracion</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Ajustes generales del sistema ISL</div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
       <div>
-        <div class="panel">
-          <div class="pt" style="margin-bottom:18px">Flujo de trabajo</div>
-          <div class="tog-row"><div><div class="tog-label">Refuerzo automático</div><div class="tog-sub">Envía refuerzo al vencer el plazo de 24hs</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Cierre automático</div><div class="tog-sub">Cierra casos sin respuesta después del Refuerzo 2</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alerta de vencimiento</div><div class="tog-sub">Notificación 2hs antes de que venza el plazo</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Reporte diario automático</div><div class="tog-sub">Envía CSV por email todos los días a las 18hs</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div style="margin-top:18px;padding-top:16px;border-top:1px solid rgba(0,0,0,.06)">
-            <div style="font-size:12px;font-weight:700;color:#6b7280;text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px">Plazos de respuesta</div>
-            <div class="frow">
-              <div class="fg"><label class="fl">Plazo inicial (hs)</label><input class="fi" value="24" type="number" style="width:100px"/></div>
-              <div class="fg"><label class="fl">Plazo Refuerzo 1 (hs)</label><input class="fi" value="24" type="number" style="width:100px"/></div>
-            </div>
-            <div class="fg"><label class="fl">Plazo Refuerzo 2 (hs)</label><input class="fi" value="24" type="number" style="width:100px"/></div>
+        <div class="panel"><div class="pt" style="margin-bottom:16px">Flujo de trabajo</div>
+          <div class="tog-row"><div><div class="tog-label">Refuerzo automatico</div><div class="tog-sub">Envia refuerzo al vencer el plazo</div></div><div class="toggle on"></div></div>
+          <div class="tog-row"><div><div class="tog-label">Cierre automatico</div><div class="tog-sub">Cierra casos sin respuesta al Ref. 2</div></div><div class="toggle on"></div></div>
+          <div class="tog-row"><div><div class="tog-label">Alerta de vencimiento</div><div class="tog-sub">Notificacion 2hs antes del plazo</div></div><div class="toggle on"></div></div>
+          <div class="tog-row"><div><div class="tog-label">Reporte diario automatico</div><div class="tog-sub">Envia CSV por email a las 18hs</div></div><div class="toggle on"></div></div>
+          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0">
+            <div class="fg"><label class="fl">Plazo inicial (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
+            <div class="fg"><label class="fl">Plazo Refuerzo 1 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
+            <div class="fg"><label class="fl">Plazo Refuerzo 2 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
           </div>
         </div>
-        <div class="panel">
-          <div class="pt" style="margin-bottom:18px">Notificaciones</div>
-          <div class="tog-row"><div><div class="tog-label">Resumen diario por email</div><div class="tog-sub"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="28454e4c5a47585d44414b4068415b44495a4f064b474506495a">[email&#160;protected]</a></div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alertas de error de importación</div><div class="tog-sub">Avisar si el Excel tiene datos incorrectos</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alertas de casos críticos</div><div class="tog-sub">Refuerzo 2 próximo a vencer (última chance)</div></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+        <div class="panel"><div class="pt" style="margin-bottom:16px">Notificaciones</div>
+          <div class="tog-row"><div><div class="tog-label">Resumen diario por email</div><div class="tog-sub">mfdropulich arroba islarg.com.ar</div></div><div class="toggle on"></div></div>
+          <div class="tog-row"><div><div class="tog-label">Alertas de error de importacion</div><div class="tog-sub">Avisar si el Excel tiene errores</div></div><div class="toggle on"></div></div>
+          <div class="tog-row"><div><div class="tog-label">Alertas de casos criticos</div><div class="tog-sub">Refuerzo 2 proximo a vencer</div></div><div class="toggle"></div></div>
         </div>
       </div>
       <div>
-        <div class="panel">
-          <div class="pt" style="margin-bottom:18px">Integraciones</div>
-          <div class="cfg-section">
-            <div class="cfg-title">WhatsApp Business — Twilio</div>
-            <div class="fg"><label class="fl">Account SID</label><div class="api-row"><input class="api-key" value="AC••••••••••••••••••••••••••••••" readonly/><span class="api-status as-pend">Pendiente</span></div></div>
-            <div class="fg"><label class="fl">Número WhatsApp</label><input class="fi" placeholder="+1415XXXXXXX (sandbox Twilio)"/></div>
+        <div class="panel"><div class="pt" style="margin-bottom:16px">Integraciones</div>
+          <div class="cfg-sec"><div class="cfg-title">WhatsApp Business - Twilio</div>
+            <div class="fg"><label class="fl">Account SID</label><div class="api-row"><input class="api-key" value="AC••••••••••••••••••••" readonly/><span class="api-st as-pend">Pendiente</span></div></div>
+            <div class="fg"><label class="fl">Numero WhatsApp</label><input class="fi" placeholder="+1415XXXXXXX (sandbox)"/></div>
           </div>
-          <div class="cfg-section">
-            <div class="cfg-title">API ISL — Vercel</div>
-            <div class="fg"><label class="fl">URL base</label><div class="api-row"><input class="api-key" value="https://isl-cuestionarios...vercel.app" readonly/><span class="api-status as-ok">Activo</span></div></div>
-            <div class="fg"><label class="fl">API Key</label><div class="api-row"><input class="api-key" value="isl-2026-florencia-••••••••" readonly/><span class="api-status as-ok">Activo</span></div></div>
+          <div class="cfg-sec"><div class="cfg-title">API ISL - Vercel</div>
+            <div class="fg"><label class="fl">URL</label><div class="api-row"><input class="api-key" value="https://isl-cuestionarios...vercel.app" readonly/><span class="api-st as-ok">Activo</span></div></div>
           </div>
-          <div class="cfg-section">
-            <div class="cfg-title">Base de datos — Supabase</div>
-            <div class="fg"><label class="fl">Project URL</label><div class="api-row"><input class="api-key" value="https://upfvmgpcc...supabase.co" readonly/><span class="api-status as-ok">Activo</span></div></div>
+          <div class="cfg-sec"><div class="cfg-title">Base de datos - Supabase</div>
+            <div class="fg"><label class="fl">Project URL</label><div class="api-row"><input class="api-key" value="https://upfvmgpcc...supabase.co" readonly/><span class="api-st as-ok">Activo</span></div></div>
           </div>
-          <div class="cfg-section">
-            <div class="cfg-title">Automatización — n8n Cloud</div>
-            <div class="fg"><label class="fl">Estado</label><div class="api-row"><input class="api-key" value="4 flujos configurados · 3 activos" readonly/><span class="api-status as-pend">Configurando</span></div></div>
+          <div class="cfg-sec"><div class="cfg-title">Automatizacion - n8n Cloud</div>
+            <div class="fg"><label class="fl">Estado</label><div class="api-row"><input class="api-key" value="4 flujos - 3 activos" readonly/><span class="api-st as-pend">Configurando</span></div></div>
           </div>
           <button class="btn-p">Guardar cambios</button>
         </div>
-        <div class="panel">
-          <div class="pt" style="margin-bottom:18px">Sistema general</div>
-          <div class="fg"><label class="fl">Nombre de la organización</label><input class="fi" value="ISL — Medicina Empresarial"/></div>
-          <div class="fg"><label class="fl">Zona horaria</label><select class="fi"><option>America/Buenos_Aires (UTC-3)</option><option>UTC</option></select></div>
-          <div class="fg"><label class="fl">Email de administración</label><input class="fi" value="mfdropulich [at] islarg.com.ar"/></div>
-          <div class="tog-row"><div><div class="tog-label">Modo mantenimiento</div><div class="tog-sub">Bloquea el acceso a usuarios Operador</div></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+        <div class="panel"><div class="pt" style="margin-bottom:16px">Sistema</div>
+          <div class="fg"><label class="fl">Organizacion</label><input class="fi" value="ISL - Medicina Empresarial"/></div>
+          <div class="fg"><label class="fl">Zona horaria</label><select class="fi"><option>America/Buenos_Aires (UTC-3)</option></select></div>
+          <div class="tog-row"><div><div class="tog-label">Modo mantenimiento</div><div class="tog-sub">Bloquea acceso a operadores</div></div><div class="toggle"></div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- USUARIOS -->
   <div class="view" id="view-usr">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-      <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Usuarios del sistema</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Control de acceso y permisos por rol</div></div>
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
+      <div><div style="font-size:20px;font-weight:700">Usuarios</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Control de acceso y permisos</div></div>
       <button class="btn-p btn-sm">+ Nuevo usuario</button>
     </div>
-    <div class="panel">
-      <table><thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Último acceso</th><th>Estado</th><th>Acciones</th></tr></thead><tbody>
-        <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">FD</span><strong>Florencia Dropulich</strong></td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8be6edeff9e4fbfee7e2e8e3cbe2f8e7eaf9eca5e8e4e6a5eaf9">[email&#160;protected]</a></td><td><span class="badge bg">Administrador</span></td><td>Hoy 16:13</td><td><span class="badge bg">Activo</span></td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Editar</button></td></tr>
-        <tr><td><span class="wa" style="background:#dcfce7;color:#166534">GR</span>Gustavo Rodríguez</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9cfbeef3f8eef5fbe9f9e6dcf5eff0fdeefbb2fff3f1b2fdee">[email&#160;protected]</a></td><td><span class="badge bb">Operador</span></td><td>01/04/2026</td><td><span class="badge bg">Activo</span></td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Editar</button></td></tr>
-        <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">ML</span>María López</td><td><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e489888b94819ea48d9788859683ca878b89ca8596">[email&#160;protected]</a></td><td><span class="badge bb">Operador</span></td><td>28/03/2026</td><td><span class="badge ba">Inactivo</span></td><td><button style="font-size:12px;color:#4a90d9;background:none;border:none;cursor:pointer;font-weight:600">Editar</button></td></tr>
-      </tbody></table>
-    </div>
+    <div class="panel"><table><thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Ultimo acceso</th><th>Estado</th></tr></thead><tbody>
+      <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">FD</span><strong>Florencia Dropulich</strong></td><td>mfdropulich arroba islarg.com.ar</td><td><span class="badge bg">Admin</span></td><td>Hoy</td><td><span class="badge bg">Activo</span></td></tr>
+      <tr><td><span class="wa" style="background:#dcfce7;color:#166534">GR</span>Gustavo Rodriguez</td><td>grodriguez arroba islarg.com.ar</td><td><span class="badge bb">Operador</span></td><td>01/04/2026</td><td><span class="badge bg">Activo</span></td></tr>
+      <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">ML</span>Maria Lopez</td><td>mlopez arroba islarg.com.ar</td><td><span class="badge bb">Operador</span></td><td>28/03/2026</td><td><span class="badge ba">Inactivo</span></td></tr>
+    </tbody></table></div>
   </div>
 
   </div>
 </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const VIEWS={inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback y soporte',cfg:'Configuración',usr:'Usuarios'};
-const now=new Date();
-const days=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
-const months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+<script>
+var VIEWS = {inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback y soporte',cfg:'Configuracion',usr:'Usuarios'};
+var now = new Date();
+var days = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
+var months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
 
-function goTo(name){
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));
-  var viewEl=document.getElementById('view-'+name);
-  if(viewEl)viewEl.classList.add('active');
-  var navEl=document.getElementById('nav-'+name);
-  if(navEl)navEl.classList.add('active');
-  var titleEl=document.getElementById('h-title');
-  var subEl=document.getElementById('h-sub');
-  if(titleEl)titleEl.textContent=VIEWS[name]||'ISL';
-  if(subEl)subEl.textContent=name==='inicio'?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
-  window.scrollTo(0,0);
+function navTo(name) {
+  var views = document.querySelectorAll('.view');
+  for (var i = 0; i < views.length; i++) views[i].classList.remove('active');
+  var navs = document.querySelectorAll('.nav');
+  for (var i = 0; i < navs.length; i++) navs[i].classList.remove('active');
+  var vEl = document.getElementById('view-' + name);
+  if (vEl) vEl.classList.add('active');
+  var nEl = document.getElementById('nav-' + name);
+  if (nEl) nEl.classList.add('active');
+  var tEl = document.getElementById('h-title');
+  if (tEl) tEl.textContent = VIEWS[name] || 'ISL';
+  var sEl = document.getElementById('h-sub');
+  if (sEl) sEl.textContent = (name === 'inicio') ? days[now.getDay()] + ', ' + now.getDate() + ' de ' + months[now.getMonth()] + ' de ' + now.getFullYear() : '';
+  window.scrollTo(0, 0);
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-  var subEl=document.getElementById('h-sub');
-  if(subEl)subEl.textContent=days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
-  
-  document.querySelectorAll('[data-nav]').forEach(function(el){
-    el.addEventListener('click',function(){goTo(this.getAttribute('data-nav'));});
-  });
-  document.querySelectorAll('[data-goto]').forEach(function(el){
-    el.addEventListener('click',function(){goTo(this.getAttribute('data-goto'));});
-  });
-  document.querySelectorAll('[data-ask]').forEach(function(el){
-    el.addEventListener('click',function(){askAsist(this.getAttribute('data-ask'));});
-  });
-  document.querySelectorAll('[data-fbtab]').forEach(function(el){
-    el.addEventListener('click',function(){switchFbTab(this.getAttribute('data-fbtab'),this);});
-  });
-  // fb new button
-  var fbBtn=document.querySelector('[data-fb-toggle]');
-  if(fbBtn)fbBtn.addEventListener('click',function(){var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
-});
+window.onload = function() {
+  var sEl = document.getElementById('h-sub');
+  if (sEl) sEl.textContent = days[now.getDay()] + ', ' + now.getDate() + ' de ' + months[now.getMonth()] + ' de ' + now.getFullYear();
 
-function switchFbTab(tab,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  if(el)el.classList.add('active');
-  ['fb-abiertos','fb-resueltos','fb-todos'].forEach(function(id){document.getElementById(id).style.display='none';});
-  document.getElementById('fb-'+tab).style.display='block';
+  var navIds = ['inicio','import','trab','rep','form','asist','fb','cfg','usr'];
+  for (var i = 0; i < navIds.length; i++) {
+    (function(n) {
+      var el = document.getElementById('nav-' + n);
+      if (el) el.addEventListener('click', function() { navTo(n); });
+    })(navIds[i]);
+  }
+
+  var bih = document.getElementById('btn-import-hero');
+  if (bih) bih.addEventListener('click', function() { navTo('import'); });
+  var bvt = document.getElementById('btn-ver-todos');
+  if (bvt) bvt.addEventListener('click', function() { navTo('trab'); });
+  var bii = document.getElementById('btn-ir-import');
+  if (bii) bii.addEventListener('click', function() { navTo('import'); });
+  var ble = document.getElementById('link-efectivos');
+  if (ble) ble.addEventListener('click', function() { navTo('trab'); });
+
+  var toggles = document.querySelectorAll('.toggle');
+  for (var i = 0; i < toggles.length; i++) {
+    toggles[i].addEventListener('click', function() { this.classList.toggle('on'); });
+  }
+
+  var fbBtn = document.getElementById('btn-nuevo-fb');
+  if (fbBtn) fbBtn.addEventListener('click', function() {
+    var w = document.getElementById('fb-form-wrap');
+    w.style.display = w.style.display === 'none' ? 'block' : 'none';
+  });
+  var cancelFb = document.getElementById('btn-cancel-fb');
+  if (cancelFb) cancelFb.addEventListener('click', function() { document.getElementById('fb-form-wrap').style.display = 'none'; });
+  var enviarFb = document.getElementById('btn-enviar-fb');
+  if (enviarFb) enviarFb.addEventListener('click', function() { document.getElementById('fb-form-wrap').style.display = 'none'; });
+
+  var tabs = [['tab-abiertos','abiertos'],['tab-resueltos','resueltos'],['tab-todos','todos']];
+  for (var i = 0; i < tabs.length; i++) {
+    (function(tabId, name) {
+      var el = document.getElementById(tabId);
+      if (el) el.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
+        this.classList.add('active');
+        ['fb-abiertos','fb-resueltos','fb-todos'].forEach(function(id) { document.getElementById(id).style.display = 'none'; });
+        document.getElementById('fb-' + name).style.display = 'block';
+      });
+    })(tabs[i][0], tabs[i][1]);
+  }
+
+  var sugs = {
+    sug1: 'Quienes estan en Refuerzo 2 hoy?',
+    sug2: 'Como funciona el flujo de plazos y refuerzos automaticos?',
+    sug3: 'Como configuro un nuevo formulario para un cliente ART?',
+    sug4: 'Como exporto el reporte de hoy en Excel?',
+    sug5: 'Que pasa si un trabajador no responde ninguno de los refuerzos?'
+  };
+  for (var id in sugs) {
+    (function(sugId, msg) {
+      var el = document.getElementById(sugId);
+      if (el) el.addEventListener('click', function() { sendMsg(msg); });
+    })(id, sugs[id]);
+  }
+
+  var inp = document.getElementById('asist-in');
+  if (inp) inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') sendMsg(this.value); });
+  var sndBtn = document.getElementById('bot-send-btn');
+  if (sndBtn) sndBtn.addEventListener('click', function() { sendMsg(document.getElementById('asist-in').value); });
+};
+
+function sendMsg(msg) {
+  msg = msg.trim();
+  if (!msg) return;
+  var msgs = document.getElementById('asist-msgs');
+  var sugs = document.getElementById('asist-sugs');
+  var inp = document.getElementById('asist-in');
+  var typing = document.getElementById('asist-typing');
+  msgs.innerHTML += '<div class="msg-u">' + msg + '</div>';
+  inp.value = '';
+  sugs.style.display = 'none';
+  msgs.scrollTop = msgs.scrollHeight;
+  typing.style.display = 'block';
+  fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 1000,
+      system: 'Sos el asistente del sistema ISL de Medicina Empresarial para gestionar cuestionarios a trabajadores siniestrados de ART en Argentina. El sistema importa Excel diario, envia cuestionarios por WhatsApp, hace seguimiento: Pendiente, Refuerzo 1 (24hs), Refuerzo 2 (48hs), No respondio (72hs) o Efectivo. Trabajadores actuales: Juan Garcia SIN-2026-0042 Provincia ART Efectivo, Maria Lopez SIN-2026-0043 Provincia ART Efectivo, Carlos Rodriguez SIN-2026-0044 Galeno ART Refuerzo 1, Ana Martinez SIN-2026-0045 Galeno ART Refuerzo 2, Diego Gomez SIN-2026-0046 Provincia ART No respondio, Roberto Sanchez SIN-2026-0047 Swiss Medical Efectivo, Laura Fernandez SIN-2026-0048 Swiss Medical Efectivo. Usuaria: Florencia Dropulich, Administrador, ISL Medicina Empresarial. Responde en espanol rioplatense, breve y practico.',
+      messages: [{role: 'user', content: msg}]
+    })
+  }).then(function(r) { return r.json(); }).then(function(data) {
+    typing.style.display = 'none';
+    var reply = (data.content && data.content[0]) ? data.content[0].text : 'No pude procesar tu consulta.';
+    msgs.innerHTML += '<div class="msg-bot">' + reply.replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>') + '</div>';
+    msgs.scrollTop = msgs.scrollHeight;
+  }).catch(function() {
+    typing.style.display = 'none';
+    msgs.innerHTML += '<div class="msg-bot">Error al conectar. Intenta de nuevo.</div>';
+    msgs.scrollTop = msgs.scrollHeight;
+  });
 }
-
-function askAsist(msg){document.getElementById('asist-in').value=msg;sendAsist();}
-
-async function sendAsist(){
-  const inp=document.getElementById('asist-in');
-  const msg=inp.value.trim();if(!msg)return;
-  const msgs=document.getElementById('asist-msgs');
-  const sugs=document.getElementById('asist-sugs');
-  msgs.innerHTML+=`<div class="msg-u">${msg}</div>`;
-  inp.value='';sugs.style.display='none';msgs.scrollTop=msgs.scrollHeight;
-  document.getElementById('asist-typing').style.display='block';
-  try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:'Sos el asistente del sistema ISL de Medicina Empresarial, herramienta para gestionar cuestionarios a trabajadores siniestrados de ART en Argentina. El sistema: 1) Importa Excel diario con datos de trabajadores (nombre, apellido, DNI, celular, cliente ART, siniestro). 2) Envía cuestionarios automáticamente por WhatsApp. 3) Seguimiento: Pendiente → Refuerzo 1 (24hs) → Refuerzo 2 (48hs) → No respondió (72hs) o Efectivo. 4) Múltiples formularios por ART cliente (Provincia ART, Galeno, Swiss Medical). 5) Reportes en texto, Excel/CSV, PDF. Trabajadores en sistema: Juan García SIN-2026-0042 Provincia ART Efectivo, María López SIN-2026-0043 Provincia ART Efectivo, Carlos Rodríguez SIN-2026-0044 Galeno ART Refuerzo 1, Ana Martínez SIN-2026-0045 Galeno ART Refuerzo 2, Diego Gómez SIN-2026-0046 Provincia ART No respondió, Roberto Sánchez SIN-2026-0047 Swiss Medical Efectivo, Laura Fernández SIN-2026-0048 Swiss Medical Efectivo. La usuaria es Florencia Dropulich, Administrador, ISL Medicina Empresarial, mfdropulich [at] islarg.com.ar. Respondé en español rioplatense, breve y práctico.',messages:[{role:'user',content:msg}]
+</script>
+</body>
+</html>
