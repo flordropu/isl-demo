@@ -177,33 +177,33 @@ select.fi option{background:var(--card);color:var(--text)}
     <div class="sb-brand"><div class="sb-t">ISL</div><div class="sb-sub">Cuestionarios</div></div>
   </div>
   <div class="sb-sec">Principal</div>
-  <div class="nav active" id="nav-inicio" onclick="go('inicio',this)">
+  <div class="nav active" id="nav-inicio" data-nav="inicio">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Inicio
   </div>
-  <div class="nav" id="nav-import" onclick="go('import',this)">
+  <div class="nav" id="nav-import" data-nav="import">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>Importar Excel
   </div>
-  <div class="nav" id="nav-trab" onclick="go('trab',this)">
+  <div class="nav" id="nav-trab" data-nav="trab">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Trabajadores
   </div>
-  <div class="nav" id="nav-rep" onclick="go('rep',this)">
+  <div class="nav" id="nav-rep" data-nav="rep">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Reportes
   </div>
-  <div class="nav" id="nav-form" onclick="go('form',this)">
+  <div class="nav" id="nav-form" data-nav="form">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/></svg>Formularios
   </div>
   <div class="sb-sec">Soporte</div>
-  <div class="nav" id="nav-asist" onclick="go('asist',this)">
+  <div class="nav" id="nav-asist" data-nav="asist">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Asistente ISL
   </div>
-  <div class="nav" id="nav-fb" onclick="go('fb',this)">
+  <div class="nav" id="nav-fb" data-nav="fb">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Feedback
   </div>
   <div class="sb-sec">Configuración</div>
-  <div class="nav" id="nav-cfg" onclick="go('cfg',this)">
+  <div class="nav" id="nav-cfg" data-nav="cfg">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Configuración
   </div>
-  <div class="nav nav-sub" id="nav-usr" onclick="go('usr',this)">Usuarios</div>
+  <div class="nav nav-sub" id="nav-usr" data-nav="usr">Usuarios</div>
   <div class="sb-badge">STAGING · DEMO</div>
   <div class="sb-foot">
     <div class="ava">FD</div>
@@ -217,7 +217,7 @@ select.fi option{background:var(--card);color:var(--text)}
 <div class="main">
   <div class="hero">
     <div><h1 id="h-title">Hola, Florencia</h1><p id="h-sub"></p></div>
-    <button class="sync-btn" onclick="go('import',document.getElementById('nav-import'))">
+    <button class="sync-btn" data-goto="import">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17,8 12,3 7,8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
       Importar Excel
     </button>
@@ -228,7 +228,7 @@ select.fi option{background:var(--card);color:var(--text)}
   <div class="view active" id="view-inicio">
     <div class="kpi-grid">
       <div class="kpi k-blue"><div><div class="kl">Cuestionarios enviados</div><div class="kv">12</div><div class="ks">3 esta semana</div></div><div class="ki" style="background:#dbeafe"><svg viewBox="0 0 24 24" fill="none" stroke="#1e40af" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22,2 15,22 11,13 2,9"/></svg></div></div>
-      <div class="kpi k-green"><div><div class="kl">Respondieron</div><div class="kv" style="color:#3db87a">7</div><div class="ks g" onclick="go('trab',document.getElementById('nav-trab'))">ver efectivos →</div></div><div class="ki" style="background:#dcfce7"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg></div></div>
+      <div class="kpi k-green"><div><div class="kl">Respondieron</div><div class="kv" style="color:#3db87a">7</div><div class="ks g" data-goto="trab">ver efectivos →</div></div><div class="ki" style="background:#dcfce7"><svg viewBox="0 0 24 24" fill="none" stroke="#166534" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg></div></div>
       <div class="kpi k-amber"><div><div class="kl">En refuerzo</div><div class="kv" style="color:#e67e22">3</div><div class="ks">esperando respuesta</div></div><div class="ki" style="background:#fef3c7"><svg viewBox="0 0 24 24" fill="none" stroke="#92400e" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div></div>
       <div class="kpi k-red"><div><div class="kl">No respondieron</div><div class="kv" style="color:#e24b4a">2</div><div class="ks">casos cerrados hoy</div></div><div class="ki" style="background:#fee2e2"><svg viewBox="0 0 24 24" fill="none" stroke="#991b1b" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div>
     </div>
@@ -236,7 +236,7 @@ select.fi option{background:var(--card);color:var(--text)}
       <div class="panel">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
           <div><div class="pt">Últimas respuestas</div><div class="ps">Seguimiento de cuestionarios enviados hoy</div></div>
-          <button class="btn-p btn-sm" onclick="go('trab',document.getElementById('nav-trab'))">Ver todos</button>
+          <button class="btn-p btn-sm" data-goto="trab">Ver todos</button>
         </div>
         <table>
           <thead><tr><th>Trabajador</th><th>Evento / Siniestro</th><th>Estado</th><th>Vía</th></tr></thead>
@@ -292,7 +292,7 @@ select.fi option{background:var(--card);color:var(--text)}
   <div class="view" id="view-trab">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
       <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Trabajadores</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Seguimiento de cuestionarios enviados</div></div>
-      <div style="display:flex;gap:10px"><button class="btn-s btn-sm" onclick="go('import',document.getElementById('nav-import'))">Importar Excel</button><button class="btn-p btn-sm">+ Agregar</button></div>
+      <div style="display:flex;gap:10px"><button class="btn-s btn-sm" data-goto="import">Importar Excel</button><button class="btn-p btn-sm">+ Agregar</button></div>
     </div>
     <div class="panel">
       <table><thead><tr><th>Trabajador</th><th>Siniestro / Evento</th><th>Cliente (ART)</th><th>Enviado</th><th>Estado</th><th>Vía</th><th>Acciones</th></tr></thead><tbody>
@@ -392,11 +392,11 @@ select.fi option{background:var(--card);color:var(--text)}
         <div class="msg-bot">Hola Florencia! Soy el asistente del sistema ISL de Medicina Empresarial.<br><br>Puedo ayudarte con:<br>• Consultas sobre casos activos y estados de seguimiento<br>• Cómo funciona el flujo de refuerzos automáticos<br>• Configuración de formularios por cliente ART<br>• Importación de Excel y exportación de reportes<br>• Cualquier duda operativa del sistema<br><br>¿En qué te ayudo hoy?</div>
       </div>
       <div class="bot-sugs" id="asist-sugs">
-        <div class="sug" onclick="askAsist('¿Cuántos casos están en Refuerzo 2 hoy y quiénes son?')">¿Quiénes están en Refuerzo 2?</div>
-        <div class="sug" onclick="askAsist('¿Cómo funciona el flujo de plazos y refuerzos automáticos de 24hs?')">¿Cómo funcionan los plazos?</div>
-        <div class="sug" onclick="askAsist('¿Cómo configuro un nuevo formulario para un cliente ART nuevo?')">Configurar formulario nuevo</div>
-        <div class="sug" onclick="askAsist('¿Cómo exporto el reporte del día de hoy en Excel?')">Exportar reporte de hoy</div>
-        <div class="sug" onclick="askAsist('¿Qué pasa cuando un trabajador no responde ninguno de los dos refuerzos?')">¿Qué pasa si no responde?</div>
+        <div class="sug" data-ask="¿Cuántos casos están en Refuerzo 2 hoy y quiénes son?">¿Quiénes están en Refuerzo 2?</div>
+        <div class="sug" data-ask="¿Cómo funciona el flujo de plazos y refuerzos automáticos de 24hs?">¿Cómo funcionan los plazos?</div>
+        <div class="sug" data-ask="¿Cómo configuro un nuevo formulario para un cliente ART nuevo?">Configurar formulario nuevo</div>
+        <div class="sug" data-ask="¿Cómo exporto el reporte del día de hoy en Excel?">Exportar reporte de hoy</div>
+        <div class="sug" data-ask="¿Qué pasa cuando un trabajador no responde ninguno de los dos refuerzos?">¿Qué pasa si no responde?</div>
       </div>
       <div class="bot-typing" id="asist-typing">Escribiendo...</div>
       <div class="bot-ir">
@@ -410,7 +410,7 @@ select.fi option{background:var(--card);color:var(--text)}
   <div class="view" id="view-fb">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
       <div><div style="font-size:22px;font-weight:700;letter-spacing:-.3px">Feedback y soporte</div><div style="font-size:13px;color:#6b7280;margin-top:3px">Reportá problemas, sugerencias o consultas al equipo de desarrollo</div></div>
-      <button class="btn-p btn-sm" onclick="var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none'">+ Nuevo feedback</button>
+      <button class="btn-p btn-sm" data-fb-toggle="1">+ Nuevo feedback</button>
     </div>
     <div id="fb-form-wrap" style="display:none">
       <div class="panel" style="border:2px solid #3db87a;margin-bottom:20px">
@@ -425,9 +425,9 @@ select.fi option{background:var(--card);color:var(--text)}
       </div>
     </div>
     <div class="tab-row">
-      <div class="tab active" onclick="switchFbTab('abiertos',this)">Abiertos (3)</div>
-      <div class="tab" onclick="switchFbTab('resueltos',this)">Resueltos (2)</div>
-      <div class="tab" onclick="switchFbTab('todos',this)">Todos (5)</div>
+      <div class="tab active" data-fbtab="abiertos">Abiertos (3)</div>
+      <div class="tab" data-fbtab="resueltos">Resueltos (2)</div>
+      <div class="tab" data-fbtab="todos">Todos (5)</div>
     </div>
     <div id="fb-abiertos">
       <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El Excel no parsea bien cuando hay celdas vacías en "celular"</div><div class="fb-meta">Error · Prioridad alta · Abierto hace 2 días · #001</div></div><span class="badge ba">En revisión</span></div><div class="fb-body">Cuando subo el Excel y algunos trabajadores no tienen celular cargado, el sistema tira un error en el parseo y no procesa ninguna fila, ni las que sí tienen celular.</div><div class="fb-resp"><div class="resp-label">Respuesta del equipo</div><div class="fb-resp-txt">Identificamos el problema. Es un bug en el validador de columnas opcionales. Estamos trabajando en el fix, estimamos resolverlo en 48hs. Mientras tanto podés poner un guión "—" en las celdas vacías de celular.</div></div></div>
@@ -526,22 +526,46 @@ const VIEWS={inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Traba
 const now=new Date();
 const days=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];
 const months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-document.getElementById('h-sub').textContent=days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
 
-function go(name,navEl){
+function goTo(name){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));
-  document.getElementById('view-'+name).classList.add('active');
+  var viewEl=document.getElementById('view-'+name);
+  if(viewEl)viewEl.classList.add('active');
+  var navEl=document.getElementById('nav-'+name);
   if(navEl)navEl.classList.add('active');
-  document.getElementById('h-title').textContent=VIEWS[name]||'ISL';
-  document.getElementById('h-sub').textContent=name==='inicio'?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
+  var titleEl=document.getElementById('h-title');
+  var subEl=document.getElementById('h-sub');
+  if(titleEl)titleEl.textContent=VIEWS[name]||'ISL';
+  if(subEl)subEl.textContent=name==='inicio'?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
   window.scrollTo(0,0);
 }
 
+document.addEventListener('DOMContentLoaded',function(){
+  var subEl=document.getElementById('h-sub');
+  if(subEl)subEl.textContent=days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
+  
+  document.querySelectorAll('[data-nav]').forEach(function(el){
+    el.addEventListener('click',function(){goTo(this.getAttribute('data-nav'));});
+  });
+  document.querySelectorAll('[data-goto]').forEach(function(el){
+    el.addEventListener('click',function(){goTo(this.getAttribute('data-goto'));});
+  });
+  document.querySelectorAll('[data-ask]').forEach(function(el){
+    el.addEventListener('click',function(){askAsist(this.getAttribute('data-ask'));});
+  });
+  document.querySelectorAll('[data-fbtab]').forEach(function(el){
+    el.addEventListener('click',function(){switchFbTab(this.getAttribute('data-fbtab'),this);});
+  });
+  // fb new button
+  var fbBtn=document.querySelector('[data-fb-toggle]');
+  if(fbBtn)fbBtn.addEventListener('click',function(){var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
+});
+
 function switchFbTab(tab,el){
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  ['fb-abiertos','fb-resueltos','fb-todos'].forEach(id=>document.getElementById(id).style.display='none');
+  if(el)el.classList.add('active');
+  ['fb-abiertos','fb-resueltos','fb-todos'].forEach(function(id){document.getElementById(id).style.display='none';});
   document.getElementById('fb-'+tab).style.display='block';
 }
 
