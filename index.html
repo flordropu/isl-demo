@@ -371,50 +371,47 @@ tbody tr:hover td{background:#fafafa}
 </div>
 </div>
 <script>
-var VIEWS = {inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback',cfg:'Configuracion',usr:'Usuarios'};
-var now = new Date();
-var days = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
-var months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-function navTo(name) {
+var VIEWS={inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback',cfg:'Configuracion',usr:'Usuarios'};
+var now=new Date();
+var days=['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
+var months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+function navTo(name){
   document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});
   document.querySelectorAll('.nav').forEach(function(n){n.classList.remove('active');});
-  var vEl = document.getElementById('view-'+name);
-  if(vEl) vEl.classList.add('active');
-  var nEl = document.getElementById('nav-'+name);
-  if(nEl) nEl.classList.add('active');
-  var tEl = document.getElementById('h-title');
-  if(tEl) tEl.textContent = VIEWS[name]||'ISL';
-  var sEl = document.getElementById('h-sub');
-  if(sEl) sEl.textContent = (name==='inicio')?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
+  var vEl=document.getElementById('view-'+name);if(vEl)vEl.classList.add('active');
+  var nEl=document.getElementById('nav-'+name);if(nEl)nEl.classList.add('active');
+  var tEl=document.getElementById('h-title');if(tEl)tEl.textContent=VIEWS[name]||'ISL';
+  var sEl=document.getElementById('h-sub');if(sEl)sEl.textContent=(name==='inicio')?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
   window.scrollTo(0,0);
 }
-window.onload = function() {
+window.onload=function(){
   navTo('inicio');
-  var sEl = document.getElementById('h-sub');
-  if(sEl) sEl.textContent = days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
-  ['inicio','import','trab','rep','form','asist','fb','cfg','usr'].forEach(function(n){
-    var el = document.getElementById('nav-'+n);
-    if(el) el.addEventListener('click',function(){navTo(n);});
-  });
-  var bih=document.getElementById('btn-import-hero'); if(bih) bih.addEventListener('click',function(){navTo('import');});
-  var bvt=document.getElementById('btn-ver-todos'); if(bvt) bvt.addEventListener('click',function(){navTo('trab');});
-  var bii=document.getElementById('btn-ir-import'); if(bii) bii.addEventListener('click',function(){navTo('import');});
-  var ble=document.getElementById('link-efectivos'); if(ble) ble.addEventListener('click',function(){navTo('trab');});
+  var sEl=document.getElementById('h-sub');if(sEl)sEl.textContent=days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
+  ['inicio','import','trab','rep','form','asist','fb','cfg','usr'].forEach(function(n){var el=document.getElementById('nav-'+n);if(el)el.addEventListener('click',function(){navTo(n);});});
+  var bih=document.getElementById('btn-import-hero');if(bih)bih.addEventListener('click',function(){navTo('import');});
+  var bvt=document.getElementById('btn-ver-todos');if(bvt)bvt.addEventListener('click',function(){navTo('trab');});
+  var bii=document.getElementById('btn-ir-import');if(bii)bii.addEventListener('click',function(){navTo('import');});
+  var ble=document.getElementById('link-efectivos');if(ble)ble.addEventListener('click',function(){navTo('trab');});
   document.querySelectorAll('.toggle').forEach(function(t){t.addEventListener('click',function(){this.classList.toggle('on');});});
-  var fbBtn=document.getElementById('btn-nuevo-fb'); if(fbBtn) fbBtn.addEventListener('click',function(){var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
-  var cancelFb=document.getElementById('btn-cancel-fb'); if(cancelFb) cancelFb.addEventListener('click',function(){document.getElementById('fb-form-wrap').style.display='none';});
+  var fbBtn=document.getElementById('btn-nuevo-fb');
+  if(fbBtn)fbBtn.addEventListener('click',function(){var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
+  var cancelFb=document.getElementById('btn-cancel-fb');if(cancelFb)cancelFb.addEventListener('click',function(){document.getElementById('fb-form-wrap').style.display='none';});
   var enviarFb=document.getElementById('btn-enviar-fb');
-  if(enviarFb) enviarFb.addEventListener('click',function(){
-    var desc=document.getElementById('fb-desc').value.trim();
-    if(!desc){alert('Por favor describe el feedback');return;}
+  if(enviarFb)enviarFb.addEventListener('click',function(){
+    var desc=document.getElementById('fb-desc').value.trim();if(!desc){alert('Describe el feedback');return;}
     var tipo=document.getElementById('fb-tipo').value;
     var colors={bug:'#ef4444',feature:'#3b82f6',cambio:'#f59e0b',sugerencia:'#8b5cf6'};
     var labels={bug:'BUG',feature:'FUNCIONALIDAD',cambio:'CAMBIO',sugerencia:'SUGERENCIA'};
     var codes={bug:'BUG',feature:'FTR',cambio:'CHG',sugerencia:'SUG'};
     var code=codes[tipo]+'-'+Math.random().toString(36).substring(2,7).toUpperCase();
     var card='<div class="panel fb-card" data-tipo="'+tipo+'" style="margin-bottom:12px;border-left:4px solid '+colors[tipo]+'">';
-    card+='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:11px;font-weight:700;color:'+colors[tipo]+';padding:2px 8px;border-radius:4px;border:1px solid "+colors[tipo]+"20">'+labels[tipo]+'</span><span style="font-size:11px;font-weight:600;font-family:monospace">'+code+'</span><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:2px 8px;border-radius:999px">Pendiente</span></div><span style="font-size:11px;color:#9ca3af">'+new Date().toLocaleDateString('es-AR')+'</span></div>';
-    card+='<p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">'+desc+'</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>';
+    card+='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px">';
+    card+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:11px;font-weight:700;color:'+colors[tipo]+';padding:2px 8px;border-radius:4px">'+labels[tipo]+'</span>';
+    card+='<span style="font-size:11px;font-family:monospace">'+code+'</span>';
+    card+='<span style="font-size:11px;background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:999px">Pendiente</span></div>';
+    card+='<span style="font-size:11px;color:#9ca3af">'+new Date().toLocaleDateString('es-AR')+'</span></div>';
+    card+='<p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">'+desc+'</p>';
+    card+='<div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>';
     document.getElementById('fb-list').insertAdjacentHTML('afterbegin',card);
     document.getElementById('fb-form-wrap').style.display='none';
     document.getElementById('fb-desc').value='';
@@ -427,17 +424,14 @@ window.onload = function() {
       document.querySelectorAll('.fb-card').forEach(function(card){card.style.display=(filter==='all'||card.getAttribute('data-tipo')===filter)?'block':'none';});
     });
   });
-  ['tab-sistema','tab-ia','tab-todos-fb'].forEach(function(tid){
-    var el=document.getElementById(tid);
-    if(el) el.addEventListener('click',function(){document.querySelectorAll('#view-fb .tab').forEach(function(t){t.classList.remove('active');});this.classList.add('active');});
-  });
-  var usrBtn=document.getElementById('btn-nuevo-usr'); if(usrBtn) usrBtn.addEventListener('click',function(){var w=document.getElementById('usr-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
-  var cancelUsr=document.getElementById('btn-cancel-usr'); if(cancelUsr) cancelUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';});
-  var guardarUsr=document.getElementById('btn-guardar-usr'); if(guardarUsr) guardarUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';alert('Usuario guardado');});
-  var sugs={sug1:'Quienes estan en Refuerzo 2 hoy?',sug2:'Como funciona el flujo de plazos y refuerzos automaticos?',sug3:'Como configuro un nuevo formulario para un cliente ART?',sug4:'Como exporto el reporte de hoy en Excel?',sug5:'Que pasa si un trabajador no responde ninguno de los refuerzos?'};
+  ['tab-sistema','tab-ia','tab-todos-fb'].forEach(function(tid){var el=document.getElementById(tid);if(el)el.addEventListener('click',function(){document.querySelectorAll('#view-fb .tab').forEach(function(t){t.classList.remove('active');});this.classList.add('active');});});
+  var usrBtn=document.getElementById('btn-nuevo-usr');if(usrBtn)usrBtn.addEventListener('click',function(){var w=document.getElementById('usr-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
+  var cancelUsr=document.getElementById('btn-cancel-usr');if(cancelUsr)cancelUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';});
+  var guardarUsr=document.getElementById('btn-guardar-usr');if(guardarUsr)guardarUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';alert('Usuario guardado');});
+  var sugs={sug1:'Quienes estan en Refuerzo 2 hoy?',sug2:'Como funciona el flujo de plazos?',sug3:'Como configuro un formulario para un cliente ART?',sug4:'Como exporto el reporte en Excel?',sug5:'Que pasa si un trabajador no responde?'};
   for(var id in sugs){(function(sid,msg){var el=document.getElementById(sid);if(el)el.addEventListener('click',function(){sendMsg(msg);});})(id,sugs[id]);}
-  var inp=document.getElementById('asist-in'); if(inp) inp.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg(this.value);});
-  var sndBtn=document.getElementById('bot-send-btn'); if(sndBtn) sndBtn.addEventListener('click',function(){sendMsg(document.getElementById('asist-in').value);});
+  var inp=document.getElementById('asist-in');if(inp)inp.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg(this.value);});
+  var sndBtn=document.getElementById('bot-send-btn');if(sndBtn)sndBtn.addEventListener('click',function(){sendMsg(document.getElementById('asist-in').value);});
 };
 function sendMsg(msg){
   msg=msg.trim();if(!msg)return;
@@ -447,13 +441,22 @@ function sendMsg(msg){
   var typing=document.getElementById('asist-typing');
   msgs.innerHTML+='<div class="msg-u">'+msg+'</div>';
   inp.value='';sugs.style.display='none';msgs.scrollTop=msgs.scrollHeight;typing.style.display='block';
-  fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:'Sos el asistente del sistema ISL de Medicina Empresarial para gestionar cuestionarios a trabajadores siniestrados de ART en Argentina. El sistema importa Excel diario, envia cuestionarios por WhatsApp, hace seguimiento: Pendiente, Refuerzo 1 (24hs), Refuerzo 2 (48hs), No respondio (72hs) o Efectivo. Usuaria: Florencia Dropulich, Administrador, ISL Medicina Empresarial. Responde en espanol rioplatense, breve y practico.',messages:[{role:'user',content:msg}]})})
-  .then(function(r){return r.json();}).then(function(data){typing.style.display='none';var reply=(data.content&&data.content[0])?data.content[0].text:'No pude procesar tu consulta.';msgs.innerHTML+='<div class="msg-bot">'+reply.replace(/
-
-/g,'<br><br>').replace(/
-/g,'<br>')+'</div>';msgs.scrollTop=msgs.scrollHeight;})
-  .catch(function(){typing.style.display='none';msgs.innerHTML+='<div class="msg-bot">Error al conectar. Intenta de nuevo.</div>';msgs.scrollTop=msgs.scrollHeight;});
+  fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,
+      system:'Sos el asistente del sistema ISL de Medicina Empresarial. Responde en espanol rioplatense, breve y practico.',
+      messages:[{role:'user',content:msg}]})
+  }).then(function(r){return r.json();})
+  .then(function(data){
+    typing.style.display='none';
+    var reply=(data.content&&data.content[0])?data.content[0].text:'No pude procesar tu consulta.';
+    msgs.innerHTML+='<div class="msg-bot">'+reply+'</div>';
+    msgs.scrollTop=msgs.scrollHeight;
+  }).catch(function(){
+    typing.style.display='none';
+    msgs.innerHTML+='<div class="msg-bot">Error al conectar.</div>';
+    msgs.scrollTop=msgs.scrollHeight;
+  });
 }
-</script>
+</script></script>
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </html>
