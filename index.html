@@ -278,224 +278,180 @@ tbody tr:hover td{background:#fafafa}
   </div>
 
   <div class="view" id="view-fb">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
-      <div><div style="font-size:20px;font-weight:700">Feedback y soporte</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Reporta problemas o sugerencias al equipo de desarrollo</div></div>
-      <button class="btn-p btn-sm" id="btn-nuevo-fb">+ Nuevo feedback</button>
-    </div>
-    <div id="fb-form-wrap" style="display:none">
-      <div class="panel" style="border:2px solid #3db87a;margin-bottom:18px">
-        <div class="pt" style="margin-bottom:16px">Enviar nuevo feedback</div>
-        <div class="frow"><div class="fg"><label class="fl">Tipo</label><select class="fi"><option>Error / Bug</option><option>Nueva funcionalidad</option><option>Mejora</option><option>Consulta</option></select></div><div class="fg"><label class="fl">Prioridad</label><select class="fi"><option>Alta</option><option>Media</option><option>Baja</option></select></div></div>
-        <div class="fg"><label class="fl">Descripcion</label><textarea class="fta" placeholder="Describí el problema o sugerencia..."></textarea></div>
-        <div style="display:flex;gap:8px;justify-content:flex-end">
-          <button class="btn-s" id="btn-cancel-fb">Cancelar</button>
-          <button class="btn-p" id="btn-enviar-fb">Enviar</button>
-        </div>
-      </div>
-    </div>
-    <div class="tab-row">
-      <div class="tab active" id="tab-abiertos">Abiertos (3)</div>
-      <div class="tab" id="tab-resueltos">Resueltos (2)</div>
-      <div class="tab" id="tab-todos">Todos</div>
-    </div>
-    <div id="fb-abiertos">
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El Excel no parsea bien cuando hay celdas vacias en "celular"</div><div class="fb-meta">Error - Prioridad alta - Abierto hace 2 dias</div></div><span class="badge ba">En revision</span></div><div class="fb-body">Cuando subo el Excel y algunos trabajadores no tienen celular cargado, el sistema tira error en el parseo.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Identificamos el problema. Fix estimado en 48hs. Mientras tanto pone un guion en las celdas vacias de celular.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Necesito poder agregar un campo "Nro. de expediente"</div><div class="fb-meta">Nueva funcionalidad - Prioridad media - Abierto hace 5 dias</div></div><span class="badge bb">Planificado</span></div><div class="fb-body">Algunos clientes piden que incluya el numero de expediente en los reportes.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Agregado al backlog. Lo incluimos en el proximo release.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Puedo configurar que el Refuerzo 2 se envie a las 36hs?</div><div class="fb-meta">Consulta - Abierto ayer</div></div><span class="badge bg">Respondido</span></div><div class="fb-body">Para un cliente especifico necesito tiempos distintos.</div><div class="fb-resp"><div class="resp-lbl">Respuesta del equipo</div><div class="fb-resp-txt">Si, en Configuracion - Flujo de trabajo podes ajustar los plazos.</div></div></div>
-    </div>
-    <div id="fb-resueltos" style="display:none">
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">Error al generar PDF con caracteres especiales</div><div class="fb-meta">Error - Resuelto el 02/04/2026</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">Los reportes PDF no mostraban bien tildes y enes.</div><div class="fb-resp"><div class="resp-lbl">Solucion aplicada</div><div class="fb-resp-txt">Corregido en version 1.2.1. El PDF ahora usa UTF-8 correctamente.</div></div></div>
-      <div class="fb-item"><div class="fb-head"><div><div class="fb-title">El asistente no recordaba el contexto entre mensajes</div><div class="fb-meta">Error - Resuelto el 30/03/2026</div></div><span class="badge bg">Resuelto</span></div><div class="fb-body">El asistente respondia sin considerar mensajes anteriores.</div><div class="fb-resp"><div class="resp-lbl">Solucion aplicada</div><div class="fb-resp-txt">Se implemento memoria de conversacion durante la sesion activa.</div></div></div>
-    </div>
-    <div id="fb-todos" style="display:none"><div style="text-align:center;padding:40px;color:#9ca3af;font-size:13px">Usa las pestanas de arriba para filtrar.</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+    <div><div style="font-size:20px;font-weight:700;color:#1a1f2e">Feedback</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Gestioná el feedback y las correcciones al sistema</div></div>
+    <button class="btn-p btn-sm" id="btn-nuevo-fb">+ Nuevo feedback</button>
   </div>
-
-  <div class="view" id="view-cfg">
-    <div style="margin-bottom:18px"><div style="font-size:20px;font-weight:700">Configuracion</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Ajustes generales del sistema ISL</div></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
-      <div>
-        <div class="panel"><div class="pt" style="margin-bottom:16px">Flujo de trabajo</div>
-          <div class="tog-row"><div><div class="tog-label">Refuerzo automatico</div><div class="tog-sub">Envia refuerzo al vencer el plazo</div></div><div class="toggle on"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Cierre automatico</div><div class="tog-sub">Cierra casos sin respuesta al Ref. 2</div></div><div class="toggle on"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alerta de vencimiento</div><div class="tog-sub">Notificacion 2hs antes del plazo</div></div><div class="toggle on"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Reporte diario automatico</div><div class="tog-sub">Envia CSV por email a las 18hs</div></div><div class="toggle on"></div></div>
-          <div style="margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0">
-            <div class="fg"><label class="fl">Plazo inicial (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
-            <div class="fg"><label class="fl">Plazo Refuerzo 1 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
-            <div class="fg"><label class="fl">Plazo Refuerzo 2 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
-          </div>
-        </div>
-        <div class="panel"><div class="pt" style="margin-bottom:16px">Notificaciones</div>
-          <div class="tog-row"><div><div class="tog-label">Resumen diario por email</div><div class="tog-sub">mfdropulich arroba islarg.com.ar</div></div><div class="toggle on"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alertas de error de importacion</div><div class="tog-sub">Avisar si el Excel tiene errores</div></div><div class="toggle on"></div></div>
-          <div class="tog-row"><div><div class="tog-label">Alertas de casos criticos</div><div class="tog-sub">Refuerzo 2 proximo a vencer</div></div><div class="toggle"></div></div>
-        </div>
-      </div>
-      <div>
-        <div class="panel"><div class="pt" style="margin-bottom:16px">Integraciones</div>
-          <div class="cfg-sec"><div class="cfg-title">WhatsApp Business - Twilio</div>
-            <div class="fg"><label class="fl">Account SID</label><div class="api-row"><input class="api-key" value="AC••••••••••••••••••••" readonly/><span class="api-st as-pend">Pendiente</span></div></div>
-            <div class="fg"><label class="fl">Numero WhatsApp</label><input class="fi" placeholder="+1415XXXXXXX (sandbox)"/></div>
-          </div>
-          <div class="cfg-sec"><div class="cfg-title">API ISL - Vercel</div>
-            <div class="fg"><label class="fl">URL</label><div class="api-row"><input class="api-key" value="https://isl-cuestionarios...vercel.app" readonly/><span class="api-st as-ok">Activo</span></div></div>
-          </div>
-          <div class="cfg-sec"><div class="cfg-title">Base de datos - Supabase</div>
-            <div class="fg"><label class="fl">Project URL</label><div class="api-row"><input class="api-key" value="https://upfvmgpcc...supabase.co" readonly/><span class="api-st as-ok">Activo</span></div></div>
-          </div>
-          <div class="cfg-sec"><div class="cfg-title">Automatizacion - n8n Cloud</div>
-            <div class="fg"><label class="fl">Estado</label><div class="api-row"><input class="api-key" value="4 flujos - 3 activos" readonly/><span class="api-st as-pend">Configurando</span></div></div>
-          </div>
-          <button class="btn-p">Guardar cambios</button>
-        </div>
-        <div class="panel"><div class="pt" style="margin-bottom:16px">Sistema</div>
-          <div class="fg"><label class="fl">Organizacion</label><input class="fi" value="ISL - Medicina Empresarial"/></div>
-          <div class="fg"><label class="fl">Zona horaria</label><select class="fi"><option>America/Buenos_Aires (UTC-3)</option></select></div>
-          <div class="tog-row"><div><div class="tog-label">Modo mantenimiento</div><div class="tog-sub">Bloquea acceso a operadores</div></div><div class="toggle"></div></div>
-        </div>
-      </div>
-    </div>
+  <div id="fb-form-wrap" style="display:none"><div class="panel" style="border:2px solid #3db87a;margin-bottom:18px"><div class="pt" style="margin-bottom:16px">Enviar nuevo feedback</div><div class="frow"><div class="fg"><label class="fl">Tipo</label><select class="fi" id="fb-tipo"><option value="bug">Bug</option><option value="feature">Nueva Funcionalidad</option><option value="cambio">Cambio</option><option value="sugerencia">Sugerencia</option></select></div><div class="fg"><label class="fl">Prioridad</label><select class="fi"><option>Alta</option><option selected>Media</option><option>Baja</option></select></div></div><div class="fg"><label class="fl">Descripcion</label><textarea class="fta" id="fb-desc" placeholder="Describí el problema o sugerencia..."></textarea></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px"><button class="btn-s" id="btn-cancel-fb">Cancelar</button><button class="btn-p" id="btn-enviar-fb">Enviar feedback</button></div></div></div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px">
+    <div class="panel" style="padding:14px;text-align:center;border-top:3px solid #ef4444"><div style="font-size:22px;font-weight:700;color:#ef4444">6</div><div style="font-size:11px;color:#6b7280;margin-top:2px;text-transform:uppercase;letter-spacing:.5px">Bugs</div></div>
+    <div class="panel" style="padding:14px;text-align:center;border-top:3px solid #3b82f6"><div style="font-size:22px;font-weight:700;color:#3b82f6">1</div><div style="font-size:11px;color:#6b7280;margin-top:2px;text-transform:uppercase;letter-spacing:.5px">Nueva Func.</div></div>
+    <div class="panel" style="padding:14px;text-align:center;border-top:3px solid #f59e0b"><div style="font-size:22px;font-weight:700;color:#f59e0b">1</div><div style="font-size:11px;color:#6b7280;margin-top:2px;text-transform:uppercase;letter-spacing:.5px">Cambios</div></div>
+    <div class="panel" style="padding:14px;text-align:center;border-top:3px solid #8b5cf6"><div style="font-size:22px;font-weight:700;color:#8b5cf6">2</div><div style="font-size:11px;color:#6b7280;margin-top:2px;text-transform:uppercase;letter-spacing:.5px">Sugerencias</div></div>
   </div>
-
-  <div class="view" id="view-usr">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px">
-      <div><div style="font-size:20px;font-weight:700">Usuarios</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Control de acceso y permisos</div></div>
-      <button class="btn-p btn-sm">+ Nuevo usuario</button>
-    </div>
-    <div class="panel"><table><thead><tr><th>Usuario</th><th>Email</th><th>Rol</th><th>Ultimo acceso</th><th>Estado</th></tr></thead><tbody>
-      <tr><td><span class="wa" style="background:#dbeafe;color:#1e40af">FD</span><strong>Florencia Dropulich</strong></td><td>mfdropulich arroba islarg.com.ar</td><td><span class="badge bg">Admin</span></td><td>Hoy</td><td><span class="badge bg">Activo</span></td></tr>
-      <tr><td><span class="wa" style="background:#dcfce7;color:#166534">GR</span>Gustavo Rodriguez</td><td>grodriguez arroba islarg.com.ar</td><td><span class="badge bb">Operador</span></td><td>01/04/2026</td><td><span class="badge bg">Activo</span></td></tr>
-      <tr><td><span class="wa" style="background:#fef3c7;color:#92400e">ML</span>Maria Lopez</td><td>mlopez arroba islarg.com.ar</td><td><span class="badge bb">Operador</span></td><td>28/03/2026</td><td><span class="badge ba">Inactivo</span></td></tr>
-    </tbody></table></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+    <div class="tab-row" style="margin-bottom:0"><div class="tab active" id="tab-sistema">Sistema (10)</div><div class="tab" id="tab-ia">IA (0)</div><div class="tab" id="tab-todos-fb">Todos (10)</div></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="fb-filter active" data-filter="all" style="padding:4px 12px;border-radius:999px;border:1px solid #1a1f2e;background:#1a1f2e;color:#fff;font-size:12px;cursor:pointer">Todos</button><button class="fb-filter" data-filter="bug" style="padding:4px 12px;border-radius:999px;border:1px solid #fecaca;background:#fff5f5;color:#ef4444;font-size:12px;cursor:pointer">Bug</button><button class="fb-filter" data-filter="feature" style="padding:4px 12px;border-radius:999px;border:1px solid #bfdbfe;background:#eff6ff;color:#3b82f6;font-size:12px;cursor:pointer">Funcionalidad</button><button class="fb-filter" data-filter="cambio" style="padding:4px 12px;border-radius:999px;border:1px solid #fde68a;background:#fffbeb;color:#d97706;font-size:12px;cursor:pointer">Cambio</button><button class="fb-filter" data-filter="sugerencia" style="padding:4px 12px;border-radius:999px;border:1px solid #ddd6fe;background:#f5f3ff;color:#7c3aed;font-size:12px;cursor:pointer">Sugerencia</button></div>
   </div>
-
+  <div id="fb-list">
+    <div class="panel fb-card" data-tipo="bug" style="margin-bottom:12px;border-left:4px solid #ef4444"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:11px;font-weight:700;color:#ef4444;background:#fff5f5;border:1px solid #fecaca;padding:2px 8px;border-radius:4px">BUG</span><span style="font-size:11px;font-weight:600;font-family:monospace">BUG-HAJ92</span><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:2px 8px;border-radius:999px">Pendiente</span></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:11px;color:#9ca3af">08/04/2026</span><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Pendiente</option><option>En Backlog</option><option>En proceso</option><option>Resuelto</option><option>Rechazado</option></select></div></div><p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">Error 500 al seleccionar la seccion Reportes del sistema. El usuario no puede acceder a los reportes.</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Administrador</strong></div></div>
+    <div class="panel fb-card" data-tipo="sugerencia" style="margin-bottom:12px;border-left:4px solid #8b5cf6"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:11px;font-weight:700;color:#7c3aed;background:#f5f3ff;border:1px solid #ddd6fe;padding:2px 8px;border-radius:4px">SUGERENCIA</span><span style="font-size:11px;font-weight:600;font-family:monospace">SUG-0K8J2</span><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:2px 8px;border-radius:999px">Resuelto</span></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:11px;color:#9ca3af">07/04/2026</span><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Pendiente</option><option>En Backlog</option><option>En proceso</option><option selected>Resuelto</option><option>Rechazado</option></select></div></div><p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">Ampliar el tiempo de sesion inactiva a 1 hora para evitar tener que volver a loguearse constantemente.</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>
+    <div class="panel fb-card" data-tipo="bug" style="margin-bottom:12px;border-left:4px solid #ef4444"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:11px;font-weight:700;color:#ef4444;background:#fff5f5;border:1px solid #fecaca;padding:2px 8px;border-radius:4px">BUG</span><span style="font-size:11px;font-weight:600;font-family:monospace">BUG-NTKDE</span><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:2px 8px;border-radius:999px">Resuelto</span></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:11px;color:#9ca3af">07/04/2026</span><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Pendiente</option><option>En Backlog</option><option>En proceso</option><option selected>Resuelto</option><option>Rechazado</option></select></div></div><p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">Al crear una busqueda y guardarla no aparece el boton de editar requisitos.</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>
+    <div class="panel fb-card" data-tipo="cambio" style="margin-bottom:12px;border-left:4px solid #f59e0b"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:11px;font-weight:700;color:#d97706;background:#fffbeb;border:1px solid #fde68a;padding:2px 8px;border-radius:4px">CAMBIO</span><span style="font-size:11px;font-weight:600;font-family:monospace">CHG-SGKN9</span><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:2px 8px;border-radius:999px">Resuelto</span></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:11px;color:#9ca3af">07/04/2026</span><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Pendiente</option><option>En Backlog</option><option>En proceso</option><option selected>Resuelto</option><option>Rechazado</option></select></div></div><p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">Agregar campo para asignar manualmente una busqueda a candidatos sin asignacion automatica.</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>
+    <div class="panel fb-card" data-tipo="feature" style="margin-bottom:12px;border-left:4px solid #3b82f6"><div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span style="font-size:11px;font-weight:700;color:#3b82f6;background:#eff6ff;border:1px solid #bfdbfe;padding:2px 8px;border-radius:4px">FUNCIONALIDAD</span><span style="font-size:11px;font-weight:600;font-family:monospace">FTR-5XYL2</span><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:2px 8px;border-radius:999px">Resuelto</span></div><div style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span style="font-size:11px;color:#9ca3af">07/04/2026</span><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Pendiente</option><option>En Backlog</option><option>En proceso</option><option selected>Resuelto</option><option>Rechazado</option></select></div></div><p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">Agregar filtro por ART en los reportes para segmentar datos por empresa aseguradora.</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>
   </div>
 </div>
+<div class="view" id="view-cfg">
+  <div style="margin-bottom:24px"><div style="font-size:20px;font-weight:700;color:#1a1f2e">Configuracion</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Ajustes del sistema ISL (solo Admin)</div></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:18px">
+    <div>
+      <div class="panel" style="margin-bottom:18px"><div class="pt" style="margin-bottom:16px">API y Conexiones</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:#ea4b71;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">n8n</div><div><div style="font-size:13px;font-weight:600">n8n Cloud</div><div style="font-size:11px;color:#6b7280">fdropulich.app.n8n.cloud</div></div></div><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;font-weight:600">Configurado</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:#f22f46;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700">TWL</div><div><div style="font-size:13px;font-weight:600">Twilio WhatsApp</div><div style="font-size:11px;color:#6b7280">+1 415 523 8886 - Sandbox</div></div></div><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;font-weight:600">Activo</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:#3ecf8e;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700">SB</div><div><div style="font-size:13px;font-weight:600">Supabase</div><div style="font-size:11px;color:#6b7280">isl-cuestionarios - Tabla: cases</div></div></div><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;font-weight:600">Configurado</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:#d97706;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:700">AI</div><div><div style="font-size:13px;font-weight:600">Claude API (Anthropic)</div><div style="font-size:11px;color:#6b7280">claude-sonnet-4-20250514</div></div></div><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;font-weight:600">Configurado</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0"><div style="display:flex;align-items:center;gap:10px"><div style="width:36px;height:36px;border-radius:8px;background:#ea4335;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700">G</div><div><div style="font-size:13px;font-weight:600">Gmail</div><div style="font-size:11px;color:#6b7280">testingislarg@gmail.com</div></div></div><span style="font-size:11px;background:#dcfce7;color:#166534;border:1px solid #bbf7d0;padding:3px 10px;border-radius:999px;font-weight:600">Conectado</span></div>
+      </div>
+      <div class="panel"><div class="pt" style="margin-bottom:16px">Flujo de trabajo</div>
+        <div class="tog-row"><div><div class="tog-label">Refuerzo automatico</div><div class="tog-sub">Envia refuerzo al vencer el plazo</div></div><div class="toggle on"></div></div>
+        <div class="tog-row"><div><div class="tog-label">Cierre automatico</div><div class="tog-sub">Cierra casos sin respuesta al Ref. 2</div></div><div class="toggle on"></div></div>
+        <div class="tog-row"><div><div class="tog-label">Alerta de vencimiento</div><div class="tog-sub">Notificacion 2hs antes del plazo</div></div><div class="toggle on"></div></div>
+        <div class="tog-row"><div><div class="tog-label">Reporte diario automatico</div><div class="tog-sub">Envia CSV por email a las 18hs</div></div><div class="toggle on"></div></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid #f0f0f0">
+          <div class="fg"><label class="fl">Plazo inicial (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
+          <div class="fg"><label class="fl">Plazo Refuerzo 1 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
+          <div class="fg"><label class="fl">Plazo Refuerzo 2 (hs)</label><input class="fi" value="24" type="number" style="width:90px"/></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="panel" style="margin-bottom:18px"><div class="pt" style="margin-bottom:16px">Notificaciones</div>
+        <div class="tog-row"><div><div class="tog-label">Resumen diario por email</div><div class="tog-sub">mfdropulich@islarg.com.ar</div></div><div class="toggle on"></div></div>
+        <div class="tog-row"><div><div class="tog-label">Alerta de casos vencidos</div><div class="tog-sub">Al pasar 72hs sin respuesta</div></div><div class="toggle on"></div></div>
+        <div class="tog-row"><div><div class="tog-label">Notificacion de importacion</div><div class="tog-sub">Confirmar cuando se importa un Excel</div></div><div class="toggle"></div></div>
+      </div>
+      <div class="panel" style="margin-bottom:18px"><div class="pt" style="margin-bottom:4px">Etapa 2 - Pendiente IT</div>
+        <div style="font-size:12px;color:#6b7280;margin-bottom:14px">Requiere credenciales de IT</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div><div style="font-size:13px;font-weight:600">Azure AD - Client ID</div><div style="font-size:11px;color:#6b7280">Registro de aplicacion en Azure AD</div></div><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:3px 10px;border-radius:999px;font-weight:600">Pendiente IT</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #f3f4f6"><div><div style="font-size:13px;font-weight:600">OneDrive / SharePoint</div><div style="font-size:11px;color:#6b7280">Importar Excel desde OneDrive automatico</div></div><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:3px 10px;border-radius:999px;font-weight:600">Pendiente IT</span></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0"><div><div style="font-size:13px;font-weight:600">Microsoft Graph API</div><div style="font-size:11px;color:#6b7280">Se activa cuando Azure AD este configurado</div></div><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:3px 10px;border-radius:999px;font-weight:600">Pendiente IT</span></div>
+      </div>
+      <div class="panel"><div class="pt" style="margin-bottom:12px">Variables de entorno</div>
+        <div style="background:#0f172a;border-radius:8px;padding:14px;font-family:monospace;font-size:11px;color:#94a3b8;line-height:1.8">
+          <div><span style="color:#34d399">SUPABASE_URL</span>=<span style="color:#fbbf24">upfvmgpcc...supabase.co</span></div>
+          <div><span style="color:#34d399">SUPABASE_SERVICE_ROLE_KEY</span>=<span style="color:#f87171">configurado</span></div>
+          <div><span style="color:#34d399">ISL_API_KEY</span>=<span style="color:#f87171">configurado</span></div>
+          <div><span style="color:#94a3b8;opacity:.5">AZURE_CLIENT_ID</span>=<span style="color:#64748b">pendiente IT</span></div>
+          <div><span style="color:#94a3b8;opacity:.5">AZURE_TENANT_ID</span>=<span style="color:#64748b">pendiente IT</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="view" id="view-usr">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px">
+    <div><div style="font-size:20px;font-weight:700;color:#1a1f2e">Usuarios</div><div style="font-size:13px;color:#6b7280;margin-top:2px">Alta, baja y asignacion de roles</div></div>
+    <button class="btn-p btn-sm" id="btn-nuevo-usr">+ Nuevo usuario</button>
+  </div>
+  <div id="usr-form-wrap" style="display:none"><div class="panel" style="border:2px solid #3db87a;margin-bottom:18px"><div class="pt" style="margin-bottom:16px">Agregar nuevo usuario</div><div class="frow"><div class="fg"><label class="fl">Nombre completo</label><input class="fi" placeholder="Ej: Maria Gonzalez"/></div><div class="fg"><label class="fl">Email</label><input class="fi" type="email" placeholder="usuario@islarg.com.ar"/></div></div><div class="frow"><div class="fg"><label class="fl">Rol</label><select class="fi"><option>Administrador</option><option>RRHH</option><option>Entrevistador</option></select></div><div class="fg"><label class="fl">Estado</label><select class="fi"><option>Activo</option><option>Inactivo</option></select></div></div><div style="display:flex;gap:8px;justify-content:flex-end;margin-top:8px"><button class="btn-s" id="btn-cancel-usr">Cancelar</button><button class="btn-p" id="btn-guardar-usr">Guardar usuario</button></div></div></div>
+  <div class="panel" style="margin-bottom:18px"><table><thead><tr><th>Nombre</th><th>Email</th><th>Rol</th><th>Estado</th><th>Ultimo login</th><th>Acciones</th></tr></thead><tbody>
+    <tr><td><div style="display:flex;align-items:center;gap:8px"><span class="wa" style="background:#dbeafe;color:#1e40af">FD</span><div><div style="font-weight:600">Florencia Dropulich</div><div style="font-size:11px;color:#6b7280">Administradora</div></div></div></td><td style="font-size:12px">mfdropulich@islarg.com.ar</td><td><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option selected>Administrador</option><option>RRHH</option><option>Entrevistador</option></select></td><td><span class="badge bg">Activo</span></td><td style="font-size:12px;color:#6b7280">9/4/2026</td><td><div style="display:flex;gap:6px"><button class="btn-s" style="font-size:11px;padding:3px 10px">Desactivar</button><button class="btn-s" style="font-size:11px;padding:3px 10px">Reset clave</button></div></td></tr>
+    <tr><td><div style="display:flex;align-items:center;gap:8px"><span class="wa" style="background:#dcfce7;color:#166534">GR</span><div><div style="font-weight:600">Gustavo Rodriguez</div><div style="font-size:11px;color:#6b7280">Operador</div></div></div></td><td style="font-size:12px">grodriguez@islarg.com.ar</td><td><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Administrador</option><option selected>RRHH</option><option>Entrevistador</option></select></td><td><span class="badge bg">Activo</span></td><td style="font-size:12px;color:#6b7280">01/04/2026</td><td><div style="display:flex;gap:6px"><button class="btn-s" style="font-size:11px;padding:3px 10px">Desactivar</button><button class="btn-s" style="font-size:11px;padding:3px 10px">Reset clave</button></div></td></tr>
+    <tr style="opacity:.7"><td><div style="display:flex;align-items:center;gap:8px"><span class="wa" style="background:#f3f4f6;color:#6b7280">ML</span><div><div style="font-weight:600">Maria Lopez</div></div></div></td><td style="font-size:12px">mlopez@islarg.com.ar</td><td><select class="fi" style="font-size:11px;padding:3px 6px;width:auto"><option>Administrador</option><option selected>RRHH</option><option>Entrevistador</option></select></td><td><span class="badge ba">Inactivo</span></td><td style="font-size:12px;color:#6b7280">28/03/2026</td><td><div style="display:flex;gap:6px"><button class="btn-s" style="font-size:11px;padding:3px 10px;background:#dcfce7;color:#166534;border-color:#bbf7d0">Activar</button><button class="btn-s" style="font-size:11px;padding:3px 10px;color:#ef4444;border-color:#fecaca">Eliminar</button></div></td></tr>
+  </tbody></table></div>
+  <div class="panel" style="border:2px solid #3db87a"><div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:10px;height:10px;border-radius:50%;background:#3db87a;animation:pulse 2s infinite"></div><div class="pt" style="margin-bottom:0">Chatbot ISL - En linea</div></div>
+    <div style="font-size:12px;color:#6b7280;margin-bottom:12px">Asistente virtual disponible 24/7 para consultas del sistema.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px"><div style="background:#f0f9f4;border:1px solid #bbf7d0;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#166534;margin-bottom:4px">Estado</div><div style="display:flex;align-items:center;gap:6px"><div style="width:8px;height:8px;border-radius:50%;background:#22c55e"></div><span style="font-size:12px;color:#166534;font-weight:600">En linea</span></div></div><div style="background:#f0f9f4;border:1px solid #bbf7d0;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#166534;margin-bottom:4px">Modelo</div><div style="font-size:12px;color:#374151">Claude Sonnet 4</div></div></div>
+    <div style="background:#f8fafc;border-radius:8px;padding:12px;font-size:12px;color:#6b7280;margin-bottom:12px"><strong style="color:#374151">Consultas frecuentes:</strong> estado de casos, plazos de refuerzo, importacion de Excel, reportes diarios.</div>
+    <div style="display:flex;justify-content:flex-end"><button class="btn-p btn-sm" onclick="navTo('asist')">Abrir Asistente ISL</button></div>
+  </div>
 </div>
 
+</div>
+</div>
 <script>
-var VIEWS = {inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback y soporte',cfg:'Configuracion',usr:'Usuarios'};
+var VIEWS = {inicio:'Hola, Florencia',import:'Importar Excel diario',trab:'Trabajadores',rep:'Reportes',form:'Formularios',asist:'Asistente ISL',fb:'Feedback',cfg:'Configuracion',usr:'Usuarios'};
 var now = new Date();
 var days = ['domingo','lunes','martes','miercoles','jueves','viernes','sabado'];
 var months = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-
 function navTo(name) {
-  var views = document.querySelectorAll('.view');
-  for (var i = 0; i < views.length; i++) views[i].classList.remove('active');
-  var navs = document.querySelectorAll('.nav');
-  for (var i = 0; i < navs.length; i++) navs[i].classList.remove('active');
-  var vEl = document.getElementById('view-' + name);
-  if (vEl) vEl.classList.add('active');
-  var nEl = document.getElementById('nav-' + name);
-  if (nEl) nEl.classList.add('active');
+  document.querySelectorAll('.view').forEach(function(v){v.classList.remove('active');});
+  document.querySelectorAll('.nav').forEach(function(n){n.classList.remove('active');});
+  var vEl = document.getElementById('view-'+name);
+  if(vEl) vEl.classList.add('active');
+  var nEl = document.getElementById('nav-'+name);
+  if(nEl) nEl.classList.add('active');
   var tEl = document.getElementById('h-title');
-  if (tEl) tEl.textContent = VIEWS[name] || 'ISL';
+  if(tEl) tEl.textContent = VIEWS[name]||'ISL';
   var sEl = document.getElementById('h-sub');
-  if (sEl) sEl.textContent = (name === 'inicio') ? days[now.getDay()] + ', ' + now.getDate() + ' de ' + months[now.getMonth()] + ' de ' + now.getFullYear() : '';
-  window.scrollTo(0, 0);
+  if(sEl) sEl.textContent = (name==='inicio')?days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear():'';
+  window.scrollTo(0,0);
 }
-
 window.onload = function() {
   var sEl = document.getElementById('h-sub');
-  if (sEl) sEl.textContent = days[now.getDay()] + ', ' + now.getDate() + ' de ' + months[now.getMonth()] + ' de ' + now.getFullYear();
-
-  var navIds = ['inicio','import','trab','rep','form','asist','fb','cfg','usr'];
-  for (var i = 0; i < navIds.length; i++) {
-    (function(n) {
-      var el = document.getElementById('nav-' + n);
-      if (el) el.addEventListener('click', function() { navTo(n); });
-    })(navIds[i]);
-  }
-
-  var bih = document.getElementById('btn-import-hero');
-  if (bih) bih.addEventListener('click', function() { navTo('import'); });
-  var bvt = document.getElementById('btn-ver-todos');
-  if (bvt) bvt.addEventListener('click', function() { navTo('trab'); });
-  var bii = document.getElementById('btn-ir-import');
-  if (bii) bii.addEventListener('click', function() { navTo('import'); });
-  var ble = document.getElementById('link-efectivos');
-  if (ble) ble.addEventListener('click', function() { navTo('trab'); });
-
-  var toggles = document.querySelectorAll('.toggle');
-  for (var i = 0; i < toggles.length; i++) {
-    toggles[i].addEventListener('click', function() { this.classList.toggle('on'); });
-  }
-
-  var fbBtn = document.getElementById('btn-nuevo-fb');
-  if (fbBtn) fbBtn.addEventListener('click', function() {
-    var w = document.getElementById('fb-form-wrap');
-    w.style.display = w.style.display === 'none' ? 'block' : 'none';
+  if(sEl) sEl.textContent = days[now.getDay()]+', '+now.getDate()+' de '+months[now.getMonth()]+' de '+now.getFullYear();
+  ['inicio','import','trab','rep','form','asist','fb','cfg','usr'].forEach(function(n){
+    var el = document.getElementById('nav-'+n);
+    if(el) el.addEventListener('click',function(){navTo(n);});
   });
-  var cancelFb = document.getElementById('btn-cancel-fb');
-  if (cancelFb) cancelFb.addEventListener('click', function() { document.getElementById('fb-form-wrap').style.display = 'none'; });
-  var enviarFb = document.getElementById('btn-enviar-fb');
-  if (enviarFb) enviarFb.addEventListener('click', function() { document.getElementById('fb-form-wrap').style.display = 'none'; });
-
-  var tabs = [['tab-abiertos','abiertos'],['tab-resueltos','resueltos'],['tab-todos','todos']];
-  for (var i = 0; i < tabs.length; i++) {
-    (function(tabId, name) {
-      var el = document.getElementById(tabId);
-      if (el) el.addEventListener('click', function() {
-        document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
-        this.classList.add('active');
-        ['fb-abiertos','fb-resueltos','fb-todos'].forEach(function(id) { document.getElementById(id).style.display = 'none'; });
-        document.getElementById('fb-' + name).style.display = 'block';
-      });
-    })(tabs[i][0], tabs[i][1]);
-  }
-
-  var sugs = {
-    sug1: 'Quienes estan en Refuerzo 2 hoy?',
-    sug2: 'Como funciona el flujo de plazos y refuerzos automaticos?',
-    sug3: 'Como configuro un nuevo formulario para un cliente ART?',
-    sug4: 'Como exporto el reporte de hoy en Excel?',
-    sug5: 'Que pasa si un trabajador no responde ninguno de los refuerzos?'
-  };
-  for (var id in sugs) {
-    (function(sugId, msg) {
-      var el = document.getElementById(sugId);
-      if (el) el.addEventListener('click', function() { sendMsg(msg); });
-    })(id, sugs[id]);
-  }
-
-  var inp = document.getElementById('asist-in');
-  if (inp) inp.addEventListener('keydown', function(e) { if (e.key === 'Enter') sendMsg(this.value); });
-  var sndBtn = document.getElementById('bot-send-btn');
-  if (sndBtn) sndBtn.addEventListener('click', function() { sendMsg(document.getElementById('asist-in').value); });
+  var bih=document.getElementById('btn-import-hero'); if(bih) bih.addEventListener('click',function(){navTo('import');});
+  var bvt=document.getElementById('btn-ver-todos'); if(bvt) bvt.addEventListener('click',function(){navTo('trab');});
+  var bii=document.getElementById('btn-ir-import'); if(bii) bii.addEventListener('click',function(){navTo('import');});
+  var ble=document.getElementById('link-efectivos'); if(ble) ble.addEventListener('click',function(){navTo('trab');});
+  document.querySelectorAll('.toggle').forEach(function(t){t.addEventListener('click',function(){this.classList.toggle('on');});});
+  var fbBtn=document.getElementById('btn-nuevo-fb'); if(fbBtn) fbBtn.addEventListener('click',function(){var w=document.getElementById('fb-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
+  var cancelFb=document.getElementById('btn-cancel-fb'); if(cancelFb) cancelFb.addEventListener('click',function(){document.getElementById('fb-form-wrap').style.display='none';});
+  var enviarFb=document.getElementById('btn-enviar-fb');
+  if(enviarFb) enviarFb.addEventListener('click',function(){
+    var desc=document.getElementById('fb-desc').value.trim();
+    if(!desc){alert('Por favor describe el feedback');return;}
+    var tipo=document.getElementById('fb-tipo').value;
+    var colors={bug:'#ef4444',feature:'#3b82f6',cambio:'#f59e0b',sugerencia:'#8b5cf6'};
+    var labels={bug:'BUG',feature:'FUNCIONALIDAD',cambio:'CAMBIO',sugerencia:'SUGERENCIA'};
+    var codes={bug:'BUG',feature:'FTR',cambio:'CHG',sugerencia:'SUG'};
+    var code=codes[tipo]+'-'+Math.random().toString(36).substring(2,7).toUpperCase();
+    var card='<div class="panel fb-card" data-tipo="'+tipo+'" style="margin-bottom:12px;border-left:4px solid '+colors[tipo]+'">';
+    card+='<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px"><div style="display:flex;align-items:center;gap:10px"><span style="font-size:11px;font-weight:700;color:'+colors[tipo]+';padding:2px 8px;border-radius:4px;border:1px solid "+colors[tipo]+"20">'+labels[tipo]+'</span><span style="font-size:11px;font-weight:600;font-family:monospace">'+code+'</span><span style="font-size:11px;background:#fef3c7;color:#92400e;border:1px solid #fde68a;padding:2px 8px;border-radius:999px">Pendiente</span></div><span style="font-size:11px;color:#9ca3af">'+new Date().toLocaleDateString('es-AR')+'</span></div>';
+    card+='<p style="font-size:13px;color:#374151;line-height:1.5;margin-bottom:8px">'+desc+'</p><div style="font-size:11px;color:#9ca3af">Por: <strong>Florencia Dropulich</strong></div></div>';
+    document.getElementById('fb-list').insertAdjacentHTML('afterbegin',card);
+    document.getElementById('fb-form-wrap').style.display='none';
+    document.getElementById('fb-desc').value='';
+  });
+  document.querySelectorAll('.fb-filter').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('.fb-filter').forEach(function(b){b.style.background='#fff';b.style.color='#374151';b.style.borderColor='#d1d5db';});
+      this.style.background='#1a1f2e';this.style.color='#fff';this.style.borderColor='#1a1f2e';
+      var filter=this.getAttribute('data-filter');
+      document.querySelectorAll('.fb-card').forEach(function(card){card.style.display=(filter==='all'||card.getAttribute('data-tipo')===filter)?'block':'none';});
+    });
+  });
+  ['tab-sistema','tab-ia','tab-todos-fb'].forEach(function(tid){
+    var el=document.getElementById(tid);
+    if(el) el.addEventListener('click',function(){document.querySelectorAll('#view-fb .tab').forEach(function(t){t.classList.remove('active');});this.classList.add('active');});
+  });
+  var usrBtn=document.getElementById('btn-nuevo-usr'); if(usrBtn) usrBtn.addEventListener('click',function(){var w=document.getElementById('usr-form-wrap');w.style.display=w.style.display==='none'?'block':'none';});
+  var cancelUsr=document.getElementById('btn-cancel-usr'); if(cancelUsr) cancelUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';});
+  var guardarUsr=document.getElementById('btn-guardar-usr'); if(guardarUsr) guardarUsr.addEventListener('click',function(){document.getElementById('usr-form-wrap').style.display='none';alert('Usuario guardado');});
+  var sugs={sug1:'Quienes estan en Refuerzo 2 hoy?',sug2:'Como funciona el flujo de plazos y refuerzos automaticos?',sug3:'Como configuro un nuevo formulario para un cliente ART?',sug4:'Como exporto el reporte de hoy en Excel?',sug5:'Que pasa si un trabajador no responde ninguno de los refuerzos?'};
+  for(var id in sugs){(function(sid,msg){var el=document.getElementById(sid);if(el)el.addEventListener('click',function(){sendMsg(msg);});})(id,sugs[id]);}
+  var inp=document.getElementById('asist-in'); if(inp) inp.addEventListener('keydown',function(e){if(e.key==='Enter')sendMsg(this.value);});
+  var sndBtn=document.getElementById('bot-send-btn'); if(sndBtn) sndBtn.addEventListener('click',function(){sendMsg(document.getElementById('asist-in').value);});
 };
+function sendMsg(msg){
+  msg=msg.trim();if(!msg)return;
+  var msgs=document.getElementById('asist-msgs');
+  var sugs=document.getElementById('asist-sugs');
+  var inp=document.getElementById('asist-in');
+  var typing=document.getElementById('asist-typing');
+  msgs.innerHTML+='<div class="msg-u">'+msg+'</div>';
+  inp.value='';sugs.style.display='none';msgs.scrollTop=msgs.scrollHeight;typing.style.display='block';
+  fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:'Sos el asistente del sistema ISL de Medicina Empresarial para gestionar cuestionarios a trabajadores siniestrados de ART en Argentina. El sistema importa Excel diario, envia cuestionarios por WhatsApp, hace seguimiento: Pendiente, Refuerzo 1 (24hs), Refuerzo 2 (48hs), No respondio (72hs) o Efectivo. Usuaria: Florencia Dropulich, Administrador, ISL Medicina Empresarial. Responde en espanol rioplatense, breve y practico.',messages:[{role:'user',content:msg}]})})
+  .then(function(r){return r.json();}).then(function(data){typing.style.display='none';var reply=(data.content&&data.content[0])?data.content[0].text:'No pude procesar tu consulta.';msgs.innerHTML+='<div class="msg-bot">'+reply.replace(/
 
-function sendMsg(msg) {
-  msg = msg.trim();
-  if (!msg) return;
-  var msgs = document.getElementById('asist-msgs');
-  var sugs = document.getElementById('asist-sugs');
-  var inp = document.getElementById('asist-in');
-  var typing = document.getElementById('asist-typing');
-  msgs.innerHTML += '<div class="msg-u">' + msg + '</div>';
-  inp.value = '';
-  sugs.style.display = 'none';
-  msgs.scrollTop = msgs.scrollHeight;
-  typing.style.display = 'block';
-  fetch('https://api.anthropic.com/v1/messages', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 1000,
-      system: 'Sos el asistente del sistema ISL de Medicina Empresarial para gestionar cuestionarios a trabajadores siniestrados de ART en Argentina. El sistema importa Excel diario, envia cuestionarios por WhatsApp, hace seguimiento: Pendiente, Refuerzo 1 (24hs), Refuerzo 2 (48hs), No respondio (72hs) o Efectivo. Trabajadores actuales: Juan Garcia SIN-2026-0042 Provincia ART Efectivo, Maria Lopez SIN-2026-0043 Provincia ART Efectivo, Carlos Rodriguez SIN-2026-0044 Galeno ART Refuerzo 1, Ana Martinez SIN-2026-0045 Galeno ART Refuerzo 2, Diego Gomez SIN-2026-0046 Provincia ART No respondio, Roberto Sanchez SIN-2026-0047 Swiss Medical Efectivo, Laura Fernandez SIN-2026-0048 Swiss Medical Efectivo. Usuaria: Florencia Dropulich, Administrador, ISL Medicina Empresarial. Responde en espanol rioplatense, breve y practico.',
-      messages: [{role: 'user', content: msg}]
-    })
-  }).then(function(r) { return r.json(); }).then(function(data) {
-    typing.style.display = 'none';
-    var reply = (data.content && data.content[0]) ? data.content[0].text : 'No pude procesar tu consulta.';
-    msgs.innerHTML += '<div class="msg-bot">' + reply.replace(/\n\n/g,'<br><br>').replace(/\n/g,'<br>') + '</div>';
-    msgs.scrollTop = msgs.scrollHeight;
-  }).catch(function() {
-    typing.style.display = 'none';
-    msgs.innerHTML += '<div class="msg-bot">Error al conectar. Intenta de nuevo.</div>';
-    msgs.scrollTop = msgs.scrollHeight;
-  });
+/g,'<br><br>').replace(/
+/g,'<br>')+'</div>';msgs.scrollTop=msgs.scrollHeight;})
+  .catch(function(){typing.style.display='none';msgs.innerHTML+='<div class="msg-bot">Error al conectar. Intenta de nuevo.</div>';msgs.scrollTop=msgs.scrollHeight;});
 }
 </script>
 </body>
-</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             </html>
